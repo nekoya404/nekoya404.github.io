@@ -106,6 +106,28 @@
   opacity: 0.8;
 }
 
+.nav-year.ongoing {
+  opacity: 0.95;
+  animation: navYearTwinkle 2.6s ease-in-out infinite;
+}
+
+@keyframes navYearTwinkle {
+  0%, 100% {
+    opacity: 0.85;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 3px currentColor;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-year.ongoing {
+    animation: none;
+  }
+}
+
 .nav-title::first-letter {
   color: #aa0000;
 }

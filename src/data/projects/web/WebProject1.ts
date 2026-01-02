@@ -13,18 +13,16 @@ export const WebProject1: ProjectData = {
     ja: 'ReactとTypeScriptを活用した個人ポートフォリオウェブサイトです。Webクライアント技術を学びながら、Splineの3D要素とレトロ風UIを組み合わせて、個性のあるホームページを目指しました。'
   },
   features: [
-    'React 18 + TypeScript',
     'Spline 3D',
-    'Vite',
     {
       ko: '반응형 레이아웃',
       en: 'Responsive layout',
       ja: 'レスポンシブレイアウト'
     },
     {
-      ko: 'CSS 커스텀 애니메이션',
-      en: 'CSS custom animations',
-      ja: 'CSSカスタムアニメーション'
+      ko: 'CSS 커스텀',
+      en: 'CSS custom',
+      ja: 'CSSカスタム'
     }
   ],
   architecture: {

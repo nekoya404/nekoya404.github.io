@@ -1,6 +1,8 @@
+import type { MouseEvent, ReactNode } from 'react'
 import './ProjectsList.css'
 import type { PageType } from '../App'
 import { useLanguage } from '../i18n'
+import { projectCategories } from '../data/projects'
 
 interface ProjectsListProps {
   currentPage: PageType
@@ -10,6 +12,25 @@ interface ProjectsListProps {
 function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
   const { l } = useLanguage()
 
+  const getProjectCount = (pageType: PageType): number | null => {
+    if (pageType === 'profile') return null
+
+    const category = projectCategories[pageType as keyof typeof projectCategories]
+    if (!category) return null
+
+    return Object.keys(category.projects).length
+  }
+
+  const renderTitleWithCount = (title: ReactNode, pageType: PageType) => {
+    const count = getProjectCount(pageType)
+    return (
+      <>
+        {title}
+        {count === null ? null : ` (${count})`}
+      </>
+    )
+  }
+
   const projects = [
     {
       title: l({ ko: '프로필', en: 'PROFILE', ja: 'プロフィール' }),
@@ -18,32 +39,33 @@ function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
     },
     {
       title: l({ ko: '게임_프로젝트', en: 'GAME_PROJECT', ja: 'ゲーム_プロジェクト' }),
-      subtitle: l({ ko: '풀스택', en: 'Full Stack', ja: 'フルスタック' }),
+      subtitle: l({ ko: '유니티를 이용한 게임 개발', en: 'Game development with Unity', ja: 'Unityを使ったゲーム開発' }),
       pageType: 'game' as PageType,
     },
     {
       title: l({ ko: '웹_프로젝트', en: 'WEB_PROJECT', ja: 'ウェブ_プロジェクト' }),
-      subtitle: l({ ko: '풀스택(서버리스)', en: 'Full Stack(Serverless)', ja: 'フルスタック(サーバーレス)' }),
+      subtitle: l({ ko: '리액트를 이용한 웹 개발', en: 'Web development with React', ja: 'Reactを使ったWeb開発' }),
       pageType: 'web' as PageType,
     },
     {
       title: l({ ko: '앱_프로젝트', en: 'APP_PROJECT', ja: 'アプリ_プロジェクト' }),
-      subtitle: l({ ko: '풀스택(서버리스)', en: 'Full Stack(Serverless)', ja: 'フルスタック(サーバーレス)' }),
+      subtitle: l({ ko: '플러터를 이용한 앱 개발', en: 'App development with Flutter', ja: 'Flutterを使ったアプリ開発' }),
       pageType: 'app' as PageType,
     },
     {
       title: l({ ko: '기타_프로젝트', en: 'OTHER_PROJECT', ja: 'その他_プロジェクト' }),
-      subtitle: l({ ko: '기타', en: 'Etc.', ja: 'その他' }),
+      subtitle: l({ ko: 'Etc.', en: 'Etc.', ja: 'その他' }),
       pageType: 'other' as PageType,
     }
   ]
 
-  const handleClick = (e: React.MouseEvent, pageType: PageType) => {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>, pageType: PageType) => {
     e.preventDefault()
     onPageChange(pageType)
   }
 
-  const currentTitle = projects.find(p => p.pageType === currentPage)?.title || projects[0].title
+  const currentProject = projects.find(p => p.pageType === currentPage) || projects[0]
+  const currentTitle = renderTitleWithCount(currentProject.title, currentProject.pageType)
 
   return (
     <div className="projects-list">
@@ -65,7 +87,7 @@ function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
               </svg>
             </div>
             <div className="project-info">
-              <h4>{project.title}</h4>
+              <h4>{renderTitleWithCount(project.title, project.pageType)}</h4>
               <p>{project.subtitle}</p>
             </div>
             <div className="project-arrow">

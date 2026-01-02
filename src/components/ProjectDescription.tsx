@@ -150,7 +150,11 @@ function ProjectDescription({ category }: ProjectDescriptionProps) {
             >
               <span className="nav-title">{localize(category.projects[item]?.title) || item}</span>
               {category.projects[item]?.year && (
-                <span className="nav-year">{category.projects[item].year}</span>
+                <span
+                  className={`nav-year${String(category.projects[item].year).trim().endsWith('~') ? ' ongoing' : ''}`}
+                >
+                  {category.projects[item].year}
+                </span>
               )}
             </button>
           ))}
