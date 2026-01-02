@@ -7,14 +7,13 @@
 // ├── index.ts          - 메인 export
 // ├── game/
 // │   ├── index.ts      - 게임 카테고리 통합
-// │   ├── GameProject1.ts
+// │   ├── TRIBENINE.ts
 // │   ├── GameProject2.ts
 // │   └── GameProject3.ts
 // ├── web/
 // │   ├── index.ts
 // │   ├── WebProject1.ts
 // │   ├── WebProject2.ts
-// │   └── WebProject3.ts
 // ├── app/
 // │   ├── index.ts
 // │   ├── AppProject1.ts

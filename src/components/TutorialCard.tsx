@@ -1,24 +1,29 @@
 import './TutorialCard.css'
+import { useLanguage } from '../i18n'
 
 interface TutorialCardProps {
-  title?: string
-  subtitle?: string
   link?: string
 }
 
-function TutorialCard({ 
-  title = 'NEW SPLINE TUTORIAL', 
-  subtitle = 'Learn how to make it in Spline',
-  link = '#'
-}: TutorialCardProps) {
+function TutorialCard({ link = '#' }: TutorialCardProps) {
+  const { l } = useLanguage()
+  
   return (
     <div className="tutorial-card">
       <div className="tutorial-content">
-        <h3>{title}</h3>
-        <p>{subtitle}</p>
+        <h3>{l({ 
+          ko: '새로운 Spline 튜토리얼', 
+          en: 'NEW SPLINE TUTORIAL', 
+          ja: '新しいSplineチュートリアル' 
+        })}</h3>
+        <p>{l({ 
+          ko: 'Spline으로 만드는 방법 배우기', 
+          en: 'Learn how to make it in Spline', 
+          ja: 'Splineで作る方法を学ぶ' 
+        })}</p>
       </div>
       <a href={link} className="watch-btn" target="_blank" rel="noopener noreferrer">
-        WATCH NOW
+        {l({ ko: '지금 보기', en: 'WATCH NOW', ja: '今すぐ見る' })}
       </a>
     </div>
   )

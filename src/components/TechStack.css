@@ -48,6 +48,12 @@
   transform: scale(1.05);
 }
 
+.empty-stack {
+  color: var(--dos-gray);
+  font-size: 14px;
+  font-style: italic;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .tech-badge {

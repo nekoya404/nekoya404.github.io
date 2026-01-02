@@ -1,0 +1,126 @@
+.loading-wrapper-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.loading-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-main, #0a0a0a);
+  flex: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.loading-wrapper-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.loading-wrapper-content.loading-hidden {
+  /* 숨겨진 상태에서도 이미지가 로드되도록 */
+  width: 100%;
+  left: -9999px;
+}
+
+.loading-wrapper-content.loading-visible {
+  /* 표시 상태 */
+  transition: opacity 0.2s ease-out;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+}
+
+.loading-title {
+  color: var(--dos-light-green);
+  font-size: 24px;
+  font-family: 'VT323', monospace;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 20px;
+  background: var(--dos-dark-gray);
+  border: 2px solid var(--dos-light-gray);
+  box-shadow: 
+    inset -2px -2px 0 var(--dos-white),
+    inset 2px 2px 0 #000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--dos-light-cyan) 0px,
+    var(--dos-light-cyan) 8px,
+    transparent 8px,
+    transparent 10px
+  );
+  transition: width 0.1s steps(10);
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.progress-text {
+  color: var(--dos-light-cyan);
+  font-size: 18px;
+  font-family: 'VT323', monospace;
+  min-width: 50px;
+  text-align: right;
+}
+
+.loading-blocks {
+  display: flex;
+  gap: 2px;
+  font-size: 20px;
+  font-family: 'VT323', monospace;
+}
+
+.loading-blocks .block {
+  color: var(--dos-dark-gray);
+  transition: color 0.05s steps(1);
+  letter-spacing: -2px;
+}
+
+.loading-blocks .block.filled {
+  color: var(--dos-light-cyan);
+  text-shadow: 0 0 4px var(--dos-light-cyan);
+}

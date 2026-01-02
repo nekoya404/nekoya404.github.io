@@ -1,25 +1,53 @@
 import type { ProjectData } from '../types'
+import tribeNine1 from '../../../assets/projects/tribenine1.jpg'
+import tribeNine2 from '../../../assets/projects/tribenine2.jpg'
 
 export const GameProject1: ProjectData = {
-  title: 'GAME_PROJECT_1',
-  badge: 'Full Stack Development',
-  info: 'Unity 기반의 멀티플레이어 게임 프로젝트입니다. 클라이언트와 서버 모두 C#으로 개발되었으며, MagicOnion을 활용한 실시간 통신을 구현했습니다.',
+  title: {
+    ko: '트라이브나인',
+    en: 'TRIBE NINE',
+    ja: 'トライブナイン'
+  },
+  genre: '3D Action RPG',
+  platform: 'Steam, iOS, Android',
+  badge: 'Frontend',
+  info: {
+    ko: '3D UI 아키텍쳐 기반 및 다양한 기능 구현을 했습니다.',
+    en: 'Implemented various features based on a 3D UI architecture.',
+    ja: '3D UIアーキテクチャを基盤に、さまざまな機能を実装しました。'
+  },
   pictures: [
-    'https://picsum.photos/seed/game1-1/600/400',
-    'https://picsum.photos/seed/game1-2/600/400',
-    'https://picsum.photos/seed/game1-3/600/400'
+    tribeNine1,
+    tribeNine2
   ],
   features: [
-    '실시간 멀티플레이어 시스템',
-    'Protocol Buffers 기반 고속 직렬화',
-    'UniTask 비동기 처리',
-    'R3 반응형 프로그래밍',
-    'MemoryPack 최적화'
+    {
+      ko: '3D UI 아키텍쳐 설계',
+      en: 'Designed a 3D UI architecture',
+      ja: '3D UIアーキテクチャの設計'
+    },
+    {
+      ko: 'API 네트워크 설계',
+      en: 'Designed the API networking layer',
+      ja: 'APIネットワークの設計'
+    },
+    {
+      ko: '다이얼로그 시스템 구현',
+      en: 'Implemented a dialog system',
+      ja: 'ダイアログシステムの実装'
+    },
+    {
+      ko: '다양한 UI 화면 구현',
+      en: 'Implemented various UI screens',
+      ja: '各種UI画面の実装'
+    },
+    {
+      ko: '에디터 확장 툴 개발',
+      en: 'Developed editor extension tools',
+      ja: 'エディタ拡張ツールの開発'
+    }
   ],
-  architecture: {
-    client: { name: 'CLIENT', tech: 'Unity + C#' },
-    server: { name: 'SERVER', tech: 'MagicOnion' }
-  },
-  status: 'COMPLETED',
-  year: '2024'
+  skills: 'Unity, URP, Addressable, UniTask, DI, Protocol Buffers, MemoryPack',
+  status: 'ENDED',
+  year: '2021~2024'
 }

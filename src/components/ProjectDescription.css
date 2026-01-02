@@ -28,13 +28,50 @@
   padding: 0;
   margin-top: 12px;
   height: auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* 스크롤 가능한 메뉴 영역 (항목이 많아지면 가로 스크롤) */
+.nav-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+
+/* 레트로 스타일 스크롤바 */
+.nav-scroll::-webkit-scrollbar {
+  height: 12px;
+}
+
+.nav-scroll::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  border-top: 2px solid #000080;
+}
+
+.nav-scroll::-webkit-scrollbar-thumb {
+  background: #000080;
+  border: 2px solid #c0c0c0;
+}
+
+.nav-scroll::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+/* Firefox */
+.nav-scroll {
+  scrollbar-color: #000080 #c0c0c0;
+  scrollbar-width: auto;
 }
 
 .nav-item {
   background: transparent;
   border: none;
   color: #000000;
-  padding: 8px 16px;
+  padding: 12px 24px;
   font-family: 'VT323', monospace;
   font-size: 18px;
   font-weight: bold;
@@ -43,9 +80,33 @@
   position: relative;
   text-transform: uppercase;
   letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  flex: 0 0 auto;
 }
 
-.nav-item::first-letter {
+/* 정렬 버튼은 스크롤과 무관하게 우측 고정 */
+.sort-btn {
+  flex: 0 0 auto;
+  border-left: 2px solid #000080;
+}
+
+.nav-title {
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+.nav-year {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.nav-title::first-letter {
   color: #aa0000;
 }
 
@@ -54,7 +115,7 @@
   color: #c0c0c0;
 }
 
-.nav-item:hover::first-letter {
+.nav-item:hover .nav-title::first-letter {
   color: #ff5555;
 }
 
@@ -63,7 +124,7 @@
   color: #ffffff;
 }
 
-.nav-item.active::first-letter {
+.nav-item.active .nav-title::first-letter {
   color: #ff5555;
 }
 
@@ -87,16 +148,22 @@
 }
 
 .desc-title {
-  font-size: 32px;
+  font-size: 42px;
   color: var(--dos-yellow);
   font-family: 'VT323', monospace;
+}
+
+.desc-genre {
+  font-size: 24px;
+  color: var(--dos-light-cyan);
+  font-weight: normal;
 }
 
 .desc-badge {
   background: var(--dos-light-magenta);
   color: var(--dos-black);
-  padding: 4px 12px;
-  font-size: 14px;
+  padding: 6px 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -114,11 +181,20 @@
 }
 
 .desc-section p {
-  color: var(--dos-white);
+  color: var(--dos-bright-white);
   font-size: 18px;
   line-height: 1.6;
   padding-left: 16px;
   border-left: 3px solid var(--dos-light-blue);
+}
+
+.desc-section p a {
+  color: var(--dos-light-cyan);
+  text-decoration: underline;
+}
+
+.desc-section p a:hover {
+  color: var(--dos-yellow);
 }
 
 /* 사진 갤러리 스타일 */
@@ -291,4 +367,19 @@
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
+}
+
+.sort-btn {
+  min-width: 80px;
+  border-left: 2px solid #000080;
+  border-right: none;
+  margin-left: auto;
+}
+
+.sort-btn .nav-title {
+  color: #000080;
+}
+
+.sort-btn:hover .nav-title {
+  color: #c0c0c0;
 }

@@ -1,17 +1,18 @@
 .portfolio-container {
   min-height: 100vh;
   padding: 16px;
+  padding-top: 60px; /* 언어 스위처를 위한 상단 여백 */
   background: var(--bg-dark);
   overflow-x: hidden;
 }
 
 .grid-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.15fr 1fr 1fr;
   gap: 16px;
   max-width: 1400px;
   margin: 0 auto;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 92px); /* 상단 여백 반영 */
 }
 
 .left-column {

@@ -1,64 +1,57 @@
 import './ProjectsList.css'
 import type { PageType } from '../App'
-
-interface Project {
-  title: string
-  subtitle: string
-  pageType: PageType
-  color?: string
-}
+import { useLanguage } from '../i18n'
 
 interface ProjectsListProps {
   currentPage: PageType
   onPageChange: (page: PageType) => void
 }
 
-const projects: Project[] = [
-  {
-    title: 'PROFILE',
-    subtitle: 'Experience & Skills',
-    pageType: 'profile',
-    color: '#22c55e'
-  },
-  {
-    title: 'GAME_PROJECT',
-    subtitle: 'Full Stack',
-    pageType: 'game',
-    color: '#8b5cf6'
-  },
-  {
-    title: 'WEB_PROJECT',
-    subtitle: 'Full Stack(Serverless)',
-    pageType: 'web',
-    color: '#ec4899'
-  },
-  {
-    title: 'APP_PROJECT',
-    subtitle: 'Full Stack(Serverless)',
-    pageType: 'app',
-    color: '#f97316'
-  },
-  {
-    title: 'OTHER_PROJECT',
-    subtitle: 'Etc.',
-    pageType: 'other',
-    color: '#06b6d4'
-  }
-]
-
 function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
+  const { l } = useLanguage()
+
+  const projects = [
+    {
+      title: l({ ko: '프로필', en: 'PROFILE', ja: 'プロフィール' }),
+      subtitle: l({ ko: '경력 & 스킬', en: 'Experience & Skills', ja: '経歴 & スキル' }),
+      pageType: 'profile' as PageType,
+    },
+    {
+      title: l({ ko: '게임_프로젝트', en: 'GAME_PROJECT', ja: 'ゲーム_プロジェクト' }),
+      subtitle: l({ ko: '풀스택', en: 'Full Stack', ja: 'フルスタック' }),
+      pageType: 'game' as PageType,
+    },
+    {
+      title: l({ ko: '웹_프로젝트', en: 'WEB_PROJECT', ja: 'ウェブ_プロジェクト' }),
+      subtitle: l({ ko: '풀스택(서버리스)', en: 'Full Stack(Serverless)', ja: 'フルスタック(サーバーレス)' }),
+      pageType: 'web' as PageType,
+    },
+    {
+      title: l({ ko: '앱_프로젝트', en: 'APP_PROJECT', ja: 'アプリ_プロジェクト' }),
+      subtitle: l({ ko: '풀스택(서버리스)', en: 'Full Stack(Serverless)', ja: 'フルスタック(サーバーレス)' }),
+      pageType: 'app' as PageType,
+    },
+    {
+      title: l({ ko: '기타_프로젝트', en: 'OTHER_PROJECT', ja: 'その他_プロジェクト' }),
+      subtitle: l({ ko: '기타', en: 'Etc.', ja: 'その他' }),
+      pageType: 'other' as PageType,
+    }
+  ]
+
   const handleClick = (e: React.MouseEvent, pageType: PageType) => {
     e.preventDefault()
     onPageChange(pageType)
   }
 
+  const currentTitle = projects.find(p => p.pageType === currentPage)?.title || projects[0].title
+
   return (
     <div className="projects-list">
-      <h3 className="section-title">LATEST_PROJECTS</h3>
+      <h3 className="section-title">{currentTitle}</h3>
       <div className="projects">
         {projects.map((project) => (
           <a 
-            key={project.title}
+            key={project.pageType}
             href="#"
             className={`project-item ${currentPage === project.pageType ? 'active' : ''}`}
             onClick={(e) => handleClick(e, project.pageType)}

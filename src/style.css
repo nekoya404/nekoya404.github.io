@@ -101,3 +101,9 @@ body::before {
   background: var(--dos-light-blue);
   color: var(--dos-bright-white);
 }
+
+/* Highlight utility class */
+.highlight {
+  color: var(--dos-light-cyan);
+  font-weight: bold;
+}
