@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 100%;
   position: relative;
 }
 
@@ -29,7 +28,7 @@
 
 .profile-image {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 5 / 4;
   border: 2px solid var(--dos-light-cyan);
   overflow: hidden;
   background: var(--dos-black);
@@ -73,15 +72,6 @@
   gap: 8px;
 }
 
-.greeting {
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 1;
-  color: var(--dos-yellow);
-  font-family: 'Press Start 2P', cursive;
-  font-size: 24px;
-}
-
 .name {
   font-size: 32px;
   font-weight: 400;
@@ -94,7 +84,7 @@
   color: var(--dos-bright-white);
   line-height: 1.5;
   margin-top: 8px;
-  border-left: 3px solid var(--dos-light-cyan);
+  border-left: 3px solid var(--content-accent-bar);
   padding-left: 12px;
   white-space: pre-line;
 }
@@ -157,157 +147,3 @@
   color: var(--dos-black);
 }
 
-.location-card {
-  background: var(--dos-black);
-  border: 2px solid var(--dos-light-cyan);
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.location-card::before {
-  content: '[ LOCATION ]';
-  position: absolute;
-  top: -10px;
-  left: 8px;
-  background: var(--dos-black);
-  color: var(--dos-light-cyan);
-  padding: 0 8px;
-  font-size: 14px;
-}
-
-.location-info {
-  position: relative;
-  z-index: 1;
-}
-
-.location-info h3 {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 4px;
-  color: var(--dos-bright-white);
-}
-
-.location-info p {
-  font-size: 18px;
-  color: var(--dos-light-green);
-}
-
-.local-time-label {
-  margin-left: 8px;
-  color: var(--dos-white);
-}
-
-.map-dot {
-  width: 16px;
-  height: 16px;
-  background: var(--dos-light-red);
-  animation: blink 0.5s infinite;
-  position: relative;
-}
-
-.map-dot::after {
-  content: '◉';
-  position: absolute;
-  top: -4px;
-  left: 0;
-  font-size: 20px;
-  color: var(--dos-light-red);
-}
-
-.action-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-.btn {
-  flex: 1;
-  padding: 12px 16px;
-  font-size: 18px;
-  font-weight: 400;
-  transition: all 0.1s;
-  font-family: 'VT323', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--dos-light-green);
-  color: var(--dos-black);
-  border: 2px solid var(--dos-light-green);
-}
-
-.btn-primary:hover {
-  background: var(--dos-black);
-  color: var(--dos-light-green);
-}
-
-.btn-secondary {
-  background: var(--dos-black);
-  color: var(--dos-light-cyan);
-  border: 2px solid var(--dos-light-cyan);
-}
-
-.btn-secondary:hover {
-  background: var(--dos-light-cyan);
-  color: var(--dos-black);
-}
-
-.contact-box {
-  background: var(--dos-black);
-  border: 2px solid var(--dos-light-cyan);
-  padding: 16px;
-  position: relative;
-  margin-top: 16px;
-}
-
-.contact-box::before {
-  content: '[ CONTACT ]';
-  position: absolute;
-  top: -10px;
-  left: 8px;
-  background: var(--dos-black);
-  color: var(--dos-light-cyan);
-  padding: 0 8px;
-  font-size: 14px;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.contact-info h3 {
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--dos-bright-white);
-}
-
-.email-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.copy-btn-small {
-  background: transparent;
-  border: 1px solid var(--dos-light-cyan);
-  color: var(--dos-light-cyan);
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.1s;
-}
-
-.copy-btn-small:hover {
-  background: var(--dos-light-cyan);
-  color: var(--dos-black);
-}

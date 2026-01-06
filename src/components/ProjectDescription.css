@@ -3,6 +3,7 @@
   border: 2px solid var(--dos-light-cyan);
   flex: 1;
   min-height: 0;
+  min-width: 0; /* flex item이 콘텐츠보다 작아질 수 있게 */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -20,135 +21,7 @@
   font-family: 'VT323', monospace;
 }
 
-/* 메뉴 네비게이션 바 - BOOTSTRA.386 스타일 */
-.desc-navbar {
-  display: flex;
-  background: #c0c0c0;
-  border-bottom: 2px solid #000080;
-  padding: 0;
-  margin-top: 12px;
-  height: auto;
-  align-items: stretch;
-  overflow: hidden;
-}
-
-/* 스크롤 가능한 메뉴 영역 (항목이 많아지면 가로 스크롤) */
-.nav-scroll {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
-}
-
-/* 레트로 스타일 스크롤바 */
-.nav-scroll::-webkit-scrollbar {
-  height: 12px;
-}
-
-.nav-scroll::-webkit-scrollbar-track {
-  background: #c0c0c0;
-  border-top: 2px solid #000080;
-}
-
-.nav-scroll::-webkit-scrollbar-thumb {
-  background: #000080;
-  border: 2px solid #c0c0c0;
-}
-
-.nav-scroll::-webkit-scrollbar-thumb:hover {
-  background: #000000;
-}
-
-/* Firefox */
-.nav-scroll {
-  scrollbar-color: #000080 #c0c0c0;
-  scrollbar-width: auto;
-}
-
-.nav-item {
-  background: transparent;
-  border: none;
-  color: #000000;
-  padding: 12px 24px;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: none;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.2;
-  flex: 0 0 auto;
-}
-
-/* 정렬 버튼은 스크롤과 무관하게 우측 고정 */
-.sort-btn {
-  flex: 0 0 auto;
-  border-left: 2px solid #000080;
-}
-
-.nav-title {
-  font-size: 22px;
-  white-space: nowrap;
-}
-
-.nav-year {
-  font-size: 14px;
-  font-weight: normal;
-  margin-top: 4px;
-  opacity: 0.8;
-}
-
-.nav-year.ongoing {
-  opacity: 0.95;
-  animation: navYearTwinkle 2.6s ease-in-out infinite;
-}
-
-@keyframes navYearTwinkle {
-  0%, 100% {
-    opacity: 0.85;
-    text-shadow: none;
-  }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 3px currentColor;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-year.ongoing {
-    animation: none;
-  }
-}
-
-.nav-title::first-letter {
-  color: #aa0000;
-}
-
-.nav-item:hover {
-  background: #000000;
-  color: #c0c0c0;
-}
-
-.nav-item:hover .nav-title::first-letter {
-  color: #ff5555;
-}
-
-.nav-item.active {
-  background: #000080;
-  color: #ffffff;
-}
-
-.nav-item.active .nav-title::first-letter {
-  color: #ff5555;
-}
+/* Menu bar styles moved to DosMenuBar.css */
 
 /* 내부 스크롤 wrapper - overflow를 여기로 이동 */
 .desc-inner {
@@ -173,6 +46,7 @@
   font-size: 42px;
   color: var(--dos-yellow);
   font-family: 'VT323', monospace;
+  word-break: break-word;
 }
 
 .desc-genre {
@@ -207,7 +81,9 @@
   font-size: 18px;
   line-height: 1.6;
   padding-left: 16px;
-  border-left: 3px solid var(--dos-light-blue);
+  border-left: 3px solid var(--content-accent-bar);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .desc-section p a {
@@ -391,17 +267,66 @@
   51%, 100% { opacity: 0; }
 }
 
-.sort-btn {
-  min-width: 80px;
-  border-left: 2px solid #000080;
-  border-right: none;
-  margin-left: auto;
-}
+/* sort-btn styles moved to DosMenuBar.css */
 
-.sort-btn .nav-title {
-  color: #000080;
-}
-
-.sort-btn:hover .nav-title {
-  color: #c0c0c0;
+/* Responsive - 모바일 */
+@media (max-width: 768px) {
+  .desc-inner {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .desc-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .desc-title {
+    font-size: 28px;
+  }
+  
+  .desc-genre {
+    font-size: 18px;
+  }
+  
+  .desc-section h3 {
+    font-size: 18px;
+  }
+  
+  .desc-section p {
+    font-size: 16px;
+  }
+  
+  .feature-list li {
+    font-size: 16px;
+  }
+  
+  .pictures-gallery {
+    flex-direction: column;
+    padding: 12px;
+  }
+  
+  .gallery-nav {
+    padding: 12px 24px;
+    font-size: 20px;
+  }
+  
+  .gallery-image {
+    max-height: 200px;
+  }
+  
+  .architecture-diagram {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .arch-box {
+    padding: 12px 24px;
+  }
+  
+  .arch-arrow {
+    transform: rotate(90deg);
+  }
 }

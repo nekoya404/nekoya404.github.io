@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../i18n'
+import './LocationTimer.css'
 
 interface LocationTimerProps {
   location: string

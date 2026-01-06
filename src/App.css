@@ -1,7 +1,7 @@
 .portfolio-container {
-  min-height: 100vh;
   padding: 16px;
-  padding-top: 60px; /* 언어 스위처를 위한 상단 여백 */
+  padding-top: calc(var(--top-menu-height) + 16px);
+  padding-bottom: 60px; /* 상단 여백과 동일하게 */
   background: var(--bg-dark);
   overflow-x: hidden;
 }
@@ -12,7 +12,7 @@
   gap: 16px;
   max-width: 1400px;
   margin: 0 auto;
-  height: calc(100vh - 92px); /* 상단 여백 반영 */
+  height: calc(100vh - (var(--top-menu-height) + 16px + 60px));
 }
 
 .left-column {
@@ -31,12 +31,7 @@
   grid-column: span 2;
   display: flex;
   flex-direction: column;
-}
-
-.spline-wrapper {
-  flex: 1;
-  min-height: 0;
-  position: relative;
+  min-width: 0; /* flex item이 콘텐츠보다 작아질 수 있게 */
 }
 
 .right-column {
@@ -68,6 +63,7 @@
 @media (max-width: 768px) {
   .portfolio-container {
     padding: 8px;
+    padding-top: calc(var(--top-menu-height) + 8px);
   }
   
   .portfolio-container::before {
@@ -77,6 +73,7 @@
   .grid-layout {
     grid-template-columns: 1fr;
     gap: 12px;
+    height: auto;
   }
   
   .content-column {
@@ -86,9 +83,5 @@
   .right-column {
     grid-column: span 1;
     flex-direction: column;
-  }
-  
-  .spline-wrapper {
-    min-height: 300px;
   }
 }

@@ -1,11 +1,14 @@
 import { useState, useMemo } from 'react'
 import ProfileCard from './components/ProfileCard'
-import SplineViewer from './components/SplineViewer'
+import LocationTimer from './components/LocationTimer'
+import ContactBox from './components/ContactBox'
+import StatusBox from './components/StatusBox'
+import SkillsBox from './components/SkillsBox'
 import SocialLinks from './components/SocialLinks'
 import ProjectsList from './components/ProjectsList'
 import ProjectDescription from './components/ProjectDescription'
 import TechStack, { defaultGameStack, webStack, appStack, otherStack } from './components/TechStack'
-import LanguageSwitcher from './components/LanguageSwitcher'
+import TopMenu from './components/TopMenu'
 import LoadingWrapper from './components/LoadingWrapper'
 import { projectCategories } from './data/projects'
 import './App.css'
@@ -43,7 +46,7 @@ function App() {
   return (
     <LoadingWrapper imagesToLoad={allImages}>
       <div className="portfolio-container">
-        <LanguageSwitcher />
+        <TopMenu />
         <main className="grid-layout">
           {/* Left & Center Column - Changes based on page */}
           {currentPage === 'profile' ? (
@@ -54,9 +57,8 @@ function App() {
               </section>
               
               <section className="center-column">
-                <div className="spline-wrapper">
-                  <SplineViewer />
-                </div>
+                <StatusBox />
+                <SkillsBox />
               </section>
             </>
           ) : (
@@ -79,6 +81,16 @@ function App() {
               <TechStack {...techStacks[currentPage as keyof typeof techStacks]} />
             )}
             <ProjectsList currentPage={currentPage} onPageChange={setCurrentPage} />
+            {currentPage === 'profile' ? (
+              <>
+                <ContactBox />
+                <LocationTimer 
+                  location="TOKYO.JP"
+                  timezone="Asia/Tokyo"
+                  gmtOffset="GMT+9"
+                />
+              </>
+            ) : null}
           </section>
         </main>
       </div>

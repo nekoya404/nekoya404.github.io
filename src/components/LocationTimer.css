@@ -1,0 +1,69 @@
+.location-card {
+  background: var(--bg-card);
+  border: 2px solid var(--dos-light-cyan);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.location-card::before {
+  content: '[ LOCATION ]';
+  position: absolute;
+  top: -12px;
+  left: 8px;
+  background: var(--dos-blue);
+  color: var(--dos-light-cyan);
+  padding: 0 8px;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.location-info {
+  position: relative;
+  z-index: 1;
+}
+
+.location-info h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  color: var(--dos-bright-white);
+}
+
+.location-info p {
+  font-size: 18px;
+  color: var(--dos-light-green);
+}
+
+.local-time-label {
+  margin-left: 8px;
+  color: var(--dos-white);
+}
+
+.map-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--dos-light-red);
+  animation: blink 0.5s infinite;
+  position: relative;
+}
+
+.map-dot::after {
+  content: '◉';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  font-size: 20px;
+  color: var(--dos-light-red);
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0.3;
+  }
+}

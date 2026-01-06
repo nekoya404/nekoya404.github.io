@@ -1,0 +1,286 @@
+.skills-card {
+  background: var(--bg-card);
+  border: 2px solid var(--dos-light-cyan);
+  padding: 12px;
+  position: relative;
+}
+
+/* 타이틀 영역 - ::before 대신 실제 요소로 변경 */
+.skills-title {
+  position: absolute;
+  top: -12px;
+  left: 8px;
+  background: var(--dos-blue);
+  color: var(--dos-light-cyan);
+  padding: 0 8px;
+  font-size: 16px;
+  z-index: 10;
+  font-family: 'VT323', monospace;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.skills-title.out {
+  animation: titleGlitchOut 0.3s steps(4) forwards;
+}
+
+.skills-title.in {
+  animation: titleGlitchIn 0.3s steps(4) forwards;
+}
+
+@keyframes titleGlitchOut {
+  0% { opacity: 1; transform: translateX(0); }
+  25% { opacity: 0.6; transform: translateX(-2px); }
+  50% { opacity: 0.2; transform: translateX(2px); }
+  75% { opacity: 0.1; transform: translateX(-1px); }
+  100% { opacity: 0; transform: translateX(1px); }
+}
+
+@keyframes titleGlitchIn {
+  0% { opacity: 0; transform: translateX(1px); }
+  25% { opacity: 0.2; transform: translateX(-1px); }
+  50% { opacity: 0.6; transform: translateX(2px); }
+  75% { opacity: 0.8; transform: translateX(-1px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* X 닫기 버튼 */
+.skills-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--dos-light-red);
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+  margin-left: 8px;
+  transition: all 0.1s;
+}
+
+.skills-close-btn:hover {
+  color: var(--dos-black);
+  background: var(--dos-light-red);
+}
+
+.skills-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  min-height: 0;
+}
+
+/* DOS 스타일 전환 애니메이션 */
+.skills-content.out {
+  animation: dosTransitionOut 0.3s steps(8) forwards;
+}
+
+.skills-content.in {
+  animation: dosTransitionIn 0.3s steps(8) forwards;
+}
+
+@keyframes dosTransitionOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(0.98);
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+    filter: blur(2px);
+  }
+  75% {
+    opacity: 0.2;
+    transform: scale(0.9);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: blur(4px);
+  }
+}
+
+@keyframes dosTransitionIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: blur(4px);
+  }
+  25% {
+    opacity: 0.2;
+    transform: scale(0.9);
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+    filter: blur(2px);
+  }
+  75% {
+    opacity: 0.8;
+    transform: scale(0.98);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.skills-tags {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+/* BOOTSTRA.386-style block button (scoped to SkillsBox only) */
+.skills-card .btn {
+  appearance: none;
+  display: inline-block;
+  font-family: 'VT323', monospace;
+  text-transform: none;
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  border-radius: 0;
+}
+
+.skills-card .btn-block {
+  display: block;
+  width: 100%;
+}
+
+.skills-card .btn-large {
+  padding: 10px 34px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.skills-card .btn-primary {
+  position: relative;
+  background: var(--dos-white);
+  color: var(--dos-black);
+  border: 2px solid var(--dos-black);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--dos-white) 60%, var(--dos-black) 40%);
+}
+
+.skills-card .btn-primary::before,
+.skills-card .btn-primary::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dos-black);
+  pointer-events: none;
+}
+
+.skills-card .btn-primary::before {
+  content: '<';
+  left: 10px;
+}
+
+.skills-card .btn-primary::after {
+  content: '>';
+  right: 10px;
+}
+
+.skills-card .btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.skills-card .btn-primary:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 color-mix(in srgb, var(--dos-white) 60%, var(--dos-black) 40%);
+}
+
+.skills-card .btn:focus-visible {
+  outline: 2px dotted var(--dos-yellow);
+  outline-offset: 3px;
+}
+
+/* 스킬 상세 설명 영역 */
+.skill-detail {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.skill-description {
+  color: var(--dos-bright-white);
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  font-family: 'VT323', monospace;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  overflow-y: visible;
+  max-height: none;
+}
+
+/* 스킬 설명 내 강조 텍스트 스타일 */
+.skill-description::first-line {
+  color: var(--dos-light-green);
+  font-size: 18px;
+}
+
+.skills-strengths {
+  padding: 12px;
+  background: rgba(85, 255, 85, 0.1);
+  border: 1px dashed var(--dos-light-green);
+}
+
+.skills-strengths-title {
+  color: var(--dos-light-green);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.skills-strengths-body {
+  color: var(--dos-bright-white);
+  font-size: 18px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+/* DOS 스캔라인 효과 (선택사항) */
+.skills-content.out::before,
+.skills-content.in::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}

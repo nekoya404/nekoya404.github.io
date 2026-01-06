@@ -1,0 +1,87 @@
+/* TopMenu layout only (visual style comes from DosMenuBar.css) */
+
+.topmenu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--top-menu-height);
+}
+
+.topmenu-bar .desc-navbar {
+  height: 100%;
+  margin-top: 0;
+  overflow: visible;
+}
+
+/* Tighten padding so the fixed bar matches height */
+.topmenu-bar .nav-item {
+  padding: 6px 18px;
+}
+
+.topmenu-bar .nav-title {
+  font-size: 18px;
+}
+
+.topmenu-lang {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.topmenu-lang .sort-btn {
+  height: 100%;
+}
+
+.topmenu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 180px;
+  background: #c0c0c0;
+  border-top: none;
+  z-index: 1001;
+}
+
+.topmenu-dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: #000000;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.topmenu-dropdown-item:hover {
+  background: #000000;
+  color: #c0c0c0;
+}
+
+.topmenu-dropdown-item.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.topmenu-dropdown-code {
+  width: 36px;
+}
+
+.topmenu-dropdown-label::first-letter {
+  color: #aa0000;
+}
+
+.topmenu-dropdown-item:hover .topmenu-dropdown-label::first-letter {
+  color: #ff5555;
+}
+
+.topmenu-dropdown-item.active .topmenu-dropdown-label::first-letter {
+  color: #ff5555;
+}

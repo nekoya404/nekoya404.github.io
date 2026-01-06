@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import './ProjectDescription.css'
+import './DosMenuBar.css'
 import { useLanguage } from '../i18n'
 import type { ProjectData, ProjectCategory, LocalizedString } from '../data/projects/types'
 import { getLocalizedString } from '../data/projects/types'

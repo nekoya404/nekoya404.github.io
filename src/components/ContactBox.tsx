@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '../i18n'
+import './ContactBox.css'
 
 function ContactBox() {
   const { l, language } = useLanguage()
@@ -12,7 +13,7 @@ function ContactBox() {
   }
 
   return (
-    <div className="contact-box">
+    <div className="contact-card">
       <div className="contact-info">
         <div className="email-row">
           <h3>nekoya404@gmail.com</h3>

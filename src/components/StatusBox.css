@@ -1,0 +1,57 @@
+.status-card {
+  background: var(--bg-card);
+  border: 2px solid var(--dos-light-cyan);
+  padding: 16px;
+  position: relative;
+}
+
+.status-card::before {
+  content: '[ STATUS ]';
+  position: absolute;
+  top: -12px;
+  left: 8px;
+  background: var(--dos-blue);
+  color: var(--dos-light-cyan);
+  padding: 0 8px;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.status-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status-goal {
+  font-size: 18px;
+  color: var(--dos-bright-white);
+  line-height: 1.5;
+  border-left: 3px solid var(--content-accent-bar);
+  padding-left: 12px;
+  white-space: pre-line;
+}
+
+.status-lines {
+  padding: 12px;
+  background: rgba(85, 255, 85, 0.1);
+  border: 1px dashed var(--dos-light-green);
+  color: var(--dos-light-green);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.status-line {
+  display: flex;
+  gap: 10px;
+}
+
+.status-line::before {
+  content: '■';
+  color: var(--dos-light-green);
+  animation: blink 1s infinite;
+}
+
+.status-line + .status-line {
+  margin-top: 6px;
+}

@@ -1,0 +1,129 @@
+/* Shared menu bar styles extracted from ProjectDescription (BOOTSTRA.386-inspired) */
+
+.desc-navbar {
+  display: flex;
+  background: #c0c0c0;
+  padding: 0;
+  height: auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* Scrollable menu area */
+.nav-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+
+.nav-item {
+  background: transparent;
+  border: none;
+  color: #000000;
+  padding: 12px 24px;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: none;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  flex: 0 0 auto;
+}
+
+.nav-title {
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+.nav-year {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.nav-year.ongoing {
+  opacity: 0.95;
+  animation: navYearTwinkle 2.6s ease-in-out infinite;
+}
+
+@keyframes navYearTwinkle {
+  0%, 100% {
+    opacity: 0.85;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 3px currentColor;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-year.ongoing {
+    animation: none;
+  }
+}
+
+.nav-title::first-letter {
+  color: #aa0000;
+}
+
+.nav-item:hover {
+  background: #000000;
+  color: #c0c0c0;
+}
+
+.nav-item:hover .nav-title::first-letter {
+  color: #ff5555;
+}
+
+.nav-item.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.nav-item.active .nav-title::first-letter {
+  color: #ff5555;
+}
+
+/* Right-side fixed action button (used by YEAR / Language) */
+.sort-btn {
+  flex: 0 0 auto;
+  min-width: 80px;
+  border-right: none;
+  margin-left: auto;
+}
+
+.sort-btn .nav-title {
+  color: #000000;
+}
+
+.sort-btn:hover .nav-title {
+  color: #c0c0c0;
+}
+
+/* Responsive - mobile */
+@media (max-width: 768px) {
+  .nav-item {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  .nav-title {
+    font-size: 18px;
+  }
+
+  .nav-year {
+    font-size: 12px;
+  }
+}
