@@ -2,7 +2,6 @@ import { useState, useMemo } from 'react'
 import ProfileCard from './components/ProfileCard'
 import LocationTimer from './components/LocationTimer'
 import ContactBox from './components/ContactBox'
-import StatusBox from './components/StatusBox'
 import SkillsBox from './components/SkillsBox'
 import SocialLinks from './components/SocialLinks'
 import ProjectsList from './components/ProjectsList'
@@ -57,7 +56,6 @@ function App() {
               </section>
               
               <section className="center-column">
-                <StatusBox />
                 <SkillsBox />
               </section>
             </>
