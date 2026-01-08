@@ -38,6 +38,7 @@
 
   /* Layout */
   --top-menu-height: 28px;
+  --bottom-statusbar-height: 28px;
 }
 
 body {

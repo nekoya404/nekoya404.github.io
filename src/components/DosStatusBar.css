@@ -1,0 +1,50 @@
+.dos-statusbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--bottom-statusbar-height);
+  z-index: 1000;
+  background: var(--dos-cyan);
+  color: var(--dos-black);
+  display: flex;
+  align-items: center;
+}
+
+.dos-statusbar-inner {
+  width: 100%;
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dos-statusbar-text {
+  display: inline-block;
+  animation: scrollText 20s linear infinite, dosStatusBlink 2s infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes dosStatusBlink {
+  0%, 74% {
+    opacity: 1;
+  }
+  75%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dos-statusbar-text {
+    animation: none;
+    transform: none;
+  }
+}
