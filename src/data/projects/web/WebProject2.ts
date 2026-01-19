@@ -9,7 +9,7 @@ export const WebProject2: ProjectData = {
     ja: 'MACROGAP'
   },
   genre: 'LoL Team Comp',
-  badge: 'Web Service',
+  badge: 'Fullstack',
   info: {
     ko: '리그오브레전드 팀 조합을 더 빠르고 합리적으로 결정할 수 있도록 돕는 웹 서비스입니다.\n메타 데이터와 챔피언/스킬 정보(Data Dragon)를 활용해 포지션별 추천과 조합 분석을 제공합니다.\n\nURL: https://macrogap.com/',
     en: 'A web service that helps you decide League of Legends team compositions faster and more rationally.\nUsing meta data and champion/skill information (Data Dragon), it provides position-based recommendations and team comp analysis.\n\nURL: https://macrogap.com/',

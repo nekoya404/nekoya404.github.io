@@ -2,11 +2,11 @@ import type { ProjectData } from '../types'
 
 export const WebProject1: ProjectData = {
   title: {
-    ko: 'PORTFOLIO_WEBSITE',
-    en: 'PORTFOLIO_WEBSITE',
-    ja: 'PORTFOLIO_WEBSITE'
+    ko: 'PORTFOLIO',
+    en: 'PORTFOLIO',
+    ja: 'PORTFOLIO'
   },
-  badge: 'Fullstack',
+  badge: 'Frontend',
   info: {
     ko: 'React와 TypeScript를 활용한 개인 포트폴리오 웹사이트입니다. Spline 3D 요소와 레트로 스타일 UI를 결합하여 웹 클라이언트 기술을 공부하며 개성있는 홈페이지를 만드려고 했습니다.',
     en: 'A personal portfolio website built with React and TypeScript. While studying web client technologies, I combined Spline 3D elements with a retro style UI to create a distinctive, characterful homepage.',
