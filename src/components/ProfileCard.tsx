@@ -1,11 +1,10 @@
 import { useMemo } from 'react'
 import './ProfileCard.css'
 import './SkillsBox.css'
-import LoadingWrapper from './LoadingWrapper'
 import { useLanguage } from '../i18n'
 import profileImage from '../assets/projects/nekoyaicon.jpeg'
 
-const PROFILE_IMAGE_URL = profileImage
+export const PROFILE_IMAGE_URL = profileImage
 const WORK_START_DATE = new Date(2020, 7, 1) // 2020년 8월 (월은 0부터 시작)
 
 function ProfileCard() {
@@ -19,12 +18,8 @@ function ProfileCard() {
     return diffYears
   }, [])
 
-  // 로드해야 할 이미지 목록
-  const imagesToLoad = useMemo(() => [PROFILE_IMAGE_URL], [])
-
   return (
-    <LoadingWrapper imagesToLoad={imagesToLoad}>
-      <div className="profile-card">
+    <div className="profile-card">
         <div className="profile-image-container">
           <div className="profile-image">
             <img 
@@ -82,7 +77,6 @@ function ProfileCard() {
           </div>
         </div>
       </div>
-    </LoadingWrapper>
   )
 }
 

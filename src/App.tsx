@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import ProfileCard from './components/ProfileCard'
+import ProfileCard, { PROFILE_IMAGE_URL } from './components/ProfileCard'
 import LocationTimer from './components/LocationTimer'
 import ContactBox from './components/ContactBox'
 import SkillsBox from './components/SkillsBox'
@@ -25,7 +25,7 @@ const techStacks = {
 
 // 모든 프로젝트에서 이미지 URL 수집
 function getAllProjectImages(): string[] {
-  const images: string[] = []
+  const images: string[] = [PROFILE_IMAGE_URL]
   
   Object.values(projectCategories).forEach(category => {
     Object.values(category.projects).forEach(project => {
