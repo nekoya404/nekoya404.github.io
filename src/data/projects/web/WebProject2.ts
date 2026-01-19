@@ -18,6 +18,11 @@ export const WebProject2: ProjectData = {
   pictures: [macrogap1, macrogap2],
   features: [
     {
+      ko: '모든 화면',
+      en: 'All screens',
+      ja: '全画面'
+    },
+    {
       ko: '조합 시뮬레이터',
       en: 'Team comp simulator',
       ja: '構成シミュレーター'
