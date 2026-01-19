@@ -255,8 +255,23 @@
 .skills-strengths-body {
   color: var(--dos-bright-white);
   font-size: 18px;
-  line-height: 1.5;
-  white-space: pre-line;
+  line-height: 1.8;
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.skills-strengths-body li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 4px;
+}
+
+.skills-strengths-body li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--dos-light-green);
 }
 
 /* DOS 스캔라인 효과 (선택사항) */

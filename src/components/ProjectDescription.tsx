@@ -235,17 +235,36 @@ function ProjectDescription({ category }: ProjectDescriptionProps) {
           
           {project.architecture && (
             <div className="desc-section">
-              <h3>{l({ ko: '► 아키텍처11', en: '► ARCHITECTURE', ja: '► アーキテクチャ' })}</h3>
+              <h3>{l({ ko: '► 아키텍처', en: '► ARCHITECTURE', ja: '► アーキテクチャ' })}</h3>
               <div className="architecture-diagram">
-                <div className="arch-box client-box">
-                  <span>{project.architecture.client.name}</span>
-                  <small>{project.architecture.client.tech}</small>
-                </div>
-                <div className="arch-arrow">⟷</div>
-                <div className="arch-box server-box">
-                  <span>{project.architecture.server.name}</span>
-                  <small>{project.architecture.server.tech}</small>
-                </div>
+                {project.architecture.wrapper ? (
+                  <div className="arch-wrapper">
+                    <div className="wrapper-label">{project.architecture.wrapper}</div>
+                    <div className="wrapper-content">
+                      <div className="arch-box client-box">
+                        <span>{project.architecture.client.name}</span>
+                        <small>{project.architecture.client.tech}</small>
+                      </div>
+                      <div className="arch-arrow">⟷</div>
+                      <div className="arch-box server-box">
+                        <span>{project.architecture.server.name}</span>
+                        <small>{project.architecture.server.tech}</small>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="arch-box client-box">
+                      <span>{project.architecture.client.name}</span>
+                      <small>{project.architecture.client.tech}</small>
+                    </div>
+                    <div className="arch-arrow">⟷</div>
+                    <div className="arch-box server-box">
+                      <span>{project.architecture.server.name}</span>
+                      <small>{project.architecture.server.tech}</small>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           )}

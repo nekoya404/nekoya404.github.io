@@ -39,6 +39,7 @@ export const WebProject2: ProjectData = {
     },
   ],
   architecture: {
+    wrapper: 'CSR',
     client: { name: 'FRONTEND', tech: 'React 18 + TypeScript + Vite + TailwindCSS' },
     server: { name: 'BACKEND', tech: 'Supabase + Riot API' }
   },

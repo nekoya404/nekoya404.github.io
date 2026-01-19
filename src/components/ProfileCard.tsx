@@ -45,17 +45,40 @@ function ProfileCard() {
             })}
           </p>
 
-          <div className="skills-strengths" aria-label="Strengths">
+          <div className="skills-strengths" aria-label="Things I Like">
             <div className="skills-strengths-title">
-              {l({ ko: '장점', en: 'Strengths', ja: '強み' })}
+              {l({ ko: '좋아하는 것', en: 'Things I Like', ja: '好きなこと' })}
             </div>
-            <p className="skills-strengths-body">
-              {l({
-                ko: '프로덕트에 열정적인 아이디어를 내는것을 좋아하고 상세한 일정관리에 자신이 있습니다. \n프론트엔드와 백엔드 모두 다룰수 있어 기능 구현이 빠르고 높은 유지보수성을 지닌 코드를 작성할 수 있습니다.',
-                en: "I enjoy coming up with product-driven ideas, and I'm confident in detailed schedule management.\nBecause I work across both frontend and backend, I can implement features quickly and write highly maintainable code.",
-                ja: 'プロダクトに熱量を持ってアイデアを出すことが好きで、細かなスケジュール管理に自信があります。\nフロントエンドとバックエンドの両方を扱えるため、機能実装が速く、保守性の高いコードを書けます。'
-              })}
-            </p>
+            <ul className="skills-strengths-body">
+              <li>
+                {l({
+                  ko: '웹, 앱, 게임등 장르는 가리지 않아요',
+                  en: "I don't limit myself to any genre - web, app, game, you name it",
+                  ja: 'ウェブ、アプリ、ゲームなどジャンルは問いません'
+                })}
+              </li>
+              <li>
+                {l({
+                  ko: '누군가에게 유용한 것을 만드는걸 좋아해요',
+                  en: 'I love creating things that are useful to others',
+                  ja: '誰かの役に立つものを作るのが好きです'
+                })}
+              </li>
+              <li>
+                {l({
+                  ko: '창의적이고 도전적인 일을 좋아해요',
+                  en: 'I enjoy creative and challenging work',
+                  ja: '創造的で挑戦的な仕事が好きです'
+                })}
+              </li>
+              <li>
+                {l({
+                  ko: '레트로한 디자인이나 키치한 디자인을 좋아해요',
+                  en: 'I love retro and kitsch design aesthetics',
+                  ja: 'レトロなデザインやキッチュなデザインが好きです'
+                })}
+              </li>
+            </ul>
           </div>
         </div>
       </div>

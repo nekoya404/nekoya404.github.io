@@ -26,8 +26,9 @@ export const WebProject1: ProjectData = {
     }
   ],
   architecture: {
+    wrapper: 'CSR',
     client: { name: 'FRONTEND', tech: 'React + Vite' },
-    server: { name: 'HOSTING', tech: 'Vercel' }
+    server: { name: 'HOSTING', tech: 'GitHub Pages' }
   },
   status: 'COMPLETED',
   year: '2026'

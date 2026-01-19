@@ -1,8 +1,36 @@
 .projects-list {
-  background: var(--bg-card);
+  background-color: var(--bg-card);
   border: 2px solid var(--dos-light-cyan);
   padding: 16px;
   position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.projects-list.highlight {
+  animation: highlight-pulse 1.5s ease-in-out;
+}
+
+@keyframes highlight-pulse {
+  0% {
+    border-color: var(--dos-yellow);
+    box-shadow: 0 0 8px 2px rgba(255, 255, 85, 0.6), inset 0 0 60px 20px rgba(255, 255, 85, 0.35);
+    background-color: rgba(255, 255, 85, 0.25);
+  }
+  30% {
+    border-color: var(--dos-yellow);
+    box-shadow: 0 0 18px 4px rgba(255, 255, 85, 0.5), inset 0 0 50px 15px rgba(255, 255, 85, 0.25);
+    background-color: rgba(255, 255, 85, 0.18);
+  }
+  60% {
+    border-color: var(--dos-yellow);
+    box-shadow: 0 0 12px 2px rgba(255, 255, 85, 0.35), inset 0 0 35px 10px rgba(255, 255, 85, 0.12);
+    background-color: rgba(255, 255, 85, 0.08);
+  }
+  100% {
+    border-color: var(--dos-light-cyan);
+    box-shadow: 0 0 0 0 rgba(255, 255, 85, 0);
+    background-color: var(--bg-card);
+  }
 }
 
 .projects-list::before {

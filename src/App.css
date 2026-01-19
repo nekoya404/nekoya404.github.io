@@ -66,8 +66,9 @@
 
 @media (max-width: 768px) {
   .portfolio-container {
-    padding: 8px;
-    padding-top: calc(var(--top-menu-height) + 8px);
+    padding: 12px;
+    padding-top: calc(var(--top-menu-height) + 16px);
+    padding-bottom: calc(var(--bottom-statusbar-height) + 16px);
   }
   
   .portfolio-container::before {

@@ -68,7 +68,7 @@ function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
   const currentTitle = renderTitleWithCount(currentProject.title, currentProject.pageType)
 
   return (
-    <div className="projects-list">
+    <div id="projects-section" className="projects-list">
       <h3 className="section-title">{currentTitle}</h3>
       <div className="projects">
         {projects.map((project) => (

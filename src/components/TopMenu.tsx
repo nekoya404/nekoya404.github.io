@@ -13,6 +13,8 @@ function TopMenu() {
   const { language, setLanguage } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const highlightTimeoutRef = useRef<number | null>(null)
+  const removeTimeoutRef = useRef<number | null>(null)
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -32,18 +34,40 @@ function TopMenu() {
 
   const toggleOpen = () => setIsOpen((v) => !v)
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects-section')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      
+      // Clear any existing timeouts
+      if (highlightTimeoutRef.current) {
+        clearTimeout(highlightTimeoutRef.current)
+      }
+      if (removeTimeoutRef.current) {
+        clearTimeout(removeTimeoutRef.current)
+      }
+      
+      // Add highlight animation after scroll
+      highlightTimeoutRef.current = window.setTimeout(() => {
+        projectsSection.classList.remove('highlight')
+        // Force reflow to restart animation
+        void projectsSection.offsetWidth
+        projectsSection.classList.add('highlight')
+        
+        // Remove class after animation completes
+        removeTimeoutRef.current = window.setTimeout(() => {
+          projectsSection.classList.remove('highlight')
+        }, 1500)
+      }, 300)
+    }
+  }
+
   return (
     <div className="topmenu-bar">
       <nav className="desc-navbar" aria-label="Main">
         <div className="nav-scroll" aria-label="Menu">
-          <button className="nav-item" type="button">
-            <span className="nav-title">A</span>
-          </button>
-          <button className="nav-item" type="button">
-            <span className="nav-title">B</span>
-          </button>
-          <button className="nav-item" type="button">
-            <span className="nav-title">C</span>
+          <button className="nav-item" type="button" onClick={scrollToProjects}>
+            <span className="nav-title">CHECK PROJECTS</span>
           </button>
         </div>
 

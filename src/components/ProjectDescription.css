@@ -194,6 +194,31 @@
   border: 1px solid var(--dos-light-blue);
 }
 
+.arch-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--dos-yellow);
+  padding: 16px;
+  position: relative;
+}
+
+.wrapper-label {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: var(--dos-black);
+  color: var(--dos-yellow);
+  padding: 0 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.wrapper-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .arch-box {
   padding: 16px 32px;
   border: 2px solid;
