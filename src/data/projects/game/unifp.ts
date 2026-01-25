@@ -1,6 +1,6 @@
 import type { ProjectData } from '../types'
 
-export const GameProject3: ProjectData = {
+export const unifp: ProjectData = {
   title: {
     ko: 'UniFP',
     en: 'UniFP',

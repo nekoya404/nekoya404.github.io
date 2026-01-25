@@ -1,6 +1,6 @@
 import type { ProjectData } from '../types'
 
-export const WebProject1: ProjectData = {
+export const portfolio: ProjectData = {
   title: {
     ko: 'PORTFOLIO',
     en: 'PORTFOLIO',

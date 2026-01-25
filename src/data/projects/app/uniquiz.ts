@@ -1,6 +1,6 @@
 import type { ProjectData } from '../types'
 
-export const AppProject1: ProjectData = {
+export const uniquiz: ProjectData = {
   title: {
     ko: 'UNIQUIZ',
     en: 'UNIQUIZ',

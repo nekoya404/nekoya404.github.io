@@ -1,9 +1,9 @@
 import type { ProjectCategory } from '../types'
-import { AppProject1 } from './AppProject1'
+import { uniquiz } from './uniquiz'
 
 // 앱 프로젝트들을 여기에 추가하세요
 const projects = {
-  AppProject1,
+  uniquiz,
 }
 
 export const appProjects: ProjectCategory = {

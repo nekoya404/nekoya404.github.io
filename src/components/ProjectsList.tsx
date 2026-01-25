@@ -1,15 +1,16 @@
-import type { MouseEvent, ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import './ProjectsList.css'
 import type { PageType } from '../App'
 import { useLanguage } from '../i18n'
 import { projectCategories } from '../data/projects'
+import { getCategoryUrl } from '../router'
 
 interface ProjectsListProps {
   currentPage: PageType
-  onPageChange: (page: PageType) => void
 }
 
-function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
+function ProjectsList({ currentPage }: ProjectsListProps) {
   const { l } = useLanguage()
 
   const getProjectCount = (pageType: PageType): number | null => {
@@ -59,11 +60,6 @@ function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
     }
   ]
 
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>, pageType: PageType) => {
-    e.preventDefault()
-    onPageChange(pageType)
-  }
-
   const currentProject = projects.find(p => p.pageType === currentPage) || projects[0]
   const currentTitle = renderTitleWithCount(currentProject.title, currentProject.pageType)
 
@@ -72,11 +68,10 @@ function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
       <h3 className="section-title">{currentTitle}</h3>
       <div className="projects">
         {projects.map((project) => (
-          <a 
+          <Link 
             key={project.pageType}
-            href="#"
+            to={getCategoryUrl(project.pageType)}
             className={`project-item ${currentPage === project.pageType ? 'active' : ''}`}
-            onClick={(e) => handleClick(e, project.pageType)}
           >
             <div 
               className="project-icon" 
@@ -95,7 +90,7 @@ function ProjectsList({ currentPage, onPageChange }: ProjectsListProps) {
                 <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
               </svg>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

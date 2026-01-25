@@ -234,12 +234,6 @@
   max-height: none;
 }
 
-/* 스킬 설명 내 강조 텍스트 스타일 */
-.skill-description::first-line {
-  color: var(--dos-light-green);
-  font-size: 18px;
-}
-
 .skills-strengths {
   padding: 12px;
   background: rgba(85, 255, 85, 0.1);

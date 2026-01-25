@@ -1,13 +1,13 @@
 import type { ProjectCategory } from '../types'
-import { WebProject1 } from './WebProject1'
-import { WebProject2 } from './WebProject2'
-import { WebProject3 } from './WebProject3'
+import { portfolio } from './portfolio'
+// import { macrogap } from './macrogap' // 임시 비공개
+import { metarmo } from './metarmo'
 
 // 웹 프로젝트들을 여기에 추가하세요
 const projects = {
-  WebProject1,
-  WebProject2,
-  WebProject3,
+  portfolio,
+  // macrogap, // 임시 비공개
+  metarmo,
 }
 
 export const webProjects: ProjectCategory = {

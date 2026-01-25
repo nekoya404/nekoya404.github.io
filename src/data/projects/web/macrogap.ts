@@ -2,7 +2,7 @@ import type { ProjectData } from '../types'
 import macrogap1 from '../../../assets/projects/macrogap1.png'
 import macrogap2 from '../../../assets/projects/macrogap2.png'
 
-export const WebProject2: ProjectData = {
+export const macrogap: ProjectData = {
   title: {
     ko: 'MACROGAP',
     en: 'MACROGAP',

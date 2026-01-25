@@ -84,7 +84,6 @@
   color: var(--dos-bright-white);
   line-height: 1.5;
   margin-top: 8px;
-  border-left: 3px solid var(--content-accent-bar);
   padding-left: 12px;
   white-space: pre-line;
 }

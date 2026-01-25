@@ -1,15 +1,15 @@
 import type { ProjectCategory } from '../types'
-import { GameProject1 } from './GameProject1'
-import { GameProject2 } from './GameProject2'
-import { GameProject3 } from './GameProject3'
-import { GameProject4 } from './GameProject4'
+import { tribenine } from './tribenine'
+import { hachinai } from './hachinai'
+import { unifp } from './unifp'
+import { unirm } from './unirm'
 
 // 게임 프로젝트들을 여기에 추가하세요
 const projects = {
-  GameProject1,
-  GameProject2,
-  GameProject3,
-  GameProject4,
+  tribenine,
+  hachinai,
+  unifp,
+  unirm,
 }
 
 export const gameProjects: ProjectCategory = {

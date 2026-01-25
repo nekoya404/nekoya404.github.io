@@ -81,7 +81,6 @@
   font-size: 18px;
   line-height: 1.6;
   padding-left: 16px;
-  border-left: 3px solid var(--content-accent-bar);
   word-break: break-word;
   overflow-wrap: break-word;
 }

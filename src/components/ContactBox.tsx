@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useLanguage } from '../i18n'
 import './ContactBox.css'
+import { contactData } from '../data/home'
 
 function ContactBox() {
-  const { l, language } = useLanguage()
+  const { language } = useLanguage()
   const [copied, setCopied] = useState(false)
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('nekoya404@gmail.com')
+    navigator.clipboard.writeText(contactData.email)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -16,11 +17,11 @@ function ContactBox() {
     <div className="contact-card">
       <div className="contact-info">
         <div className="email-row">
-          <h3>nekoya404@gmail.com</h3>
+          <h3>{contactData.email}</h3>
           <button 
             onClick={handleCopy} 
             className="copy-btn-small"
-            title={{ ko: '복사하기', en: 'Copy', ja: 'コピー' }[language]}
+            title={contactData.copyTooltip[language]}
           >
             {copied ? (
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -33,8 +34,8 @@ function ContactBox() {
             )}
           </button>
         </div>
-        <a href="mailto:nekoya404@gmail.com" className="btn btn-primary">
-          {l({ ko: '연락하기', en: 'CONTACT.ME', ja: 'お問い合わせ' })}
+        <a href={`mailto:${contactData.email}`} className="btn btn-primary">
+          {contactData.buttonText[language]}
         </a>
       </div>
     </div>

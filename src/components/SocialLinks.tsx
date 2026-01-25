@@ -1,16 +1,5 @@
 import './SocialLinks.css'
-
-interface SocialLink {
-  name: string
-  icon: string
-  url: string
-  color?: string
-}
-
-const socialLinks: SocialLink[] = [
-  { name: 'GitHub', icon: 'github', url: 'https://github.com/nekoya404' },
-  { name: 'Qiita', icon: 'qiita', url: 'https://qiita.com/nekoya404' },
-]
+import { socialLinks } from '../data/home'
 
 const getIcon = (icon: string) => {
   switch (icon) {

@@ -1,9 +1,9 @@
 import type { ProjectCategory } from '../types'
-import { OtherProject1 } from './OtherProject1'
+import { sidenoteai } from './sidenoteai'
 
 // 기타 프로젝트들을 여기에 추가하세요
 const projects = {
-  OtherProject1,
+  sidenoteai,
 }
 
 export const otherProjects: ProjectCategory = {

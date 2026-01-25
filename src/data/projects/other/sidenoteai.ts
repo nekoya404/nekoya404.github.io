@@ -1,6 +1,6 @@
 import type { ProjectData } from '../types'
 
-export const OtherProject1: ProjectData = {
+export const sidenoteai: ProjectData = {
   title: {
     ko: 'SideNoteAI',
     en: 'SideNoteAI',

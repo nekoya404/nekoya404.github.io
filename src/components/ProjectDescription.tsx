@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './ProjectDescription.css'
 import './DosMenuBar.css'
 import { useLanguage } from '../i18n'
@@ -10,18 +11,51 @@ export type { ProjectData, ProjectCategory }
 
 interface ProjectDescriptionProps {
   category: ProjectCategory
+  initialProjectId?: string
 }
 
 const DEFAULT_SORT_ORDER: 'asc' | 'desc' = 'desc';
 
-// 연도 파싱 헬퍼 함수
-const parseYear = (yearStr?: string): number => {
+// 진행중 여부 확인 (끝에 ~가 있으면 진행중)
+const isOngoing = (yearStr?: string): boolean => {
+  if (!yearStr) return false;
+  return yearStr.trim().endsWith('~');
+}
+
+// 시작 연도 파싱 (예: "2022~2025" -> 2022, "2025~" -> 2025, "2025" -> 2025)
+const parseStartYear = (yearStr?: string): number => {
   if (!yearStr) return 0;
-  // 숫자만 추출하여 배열로 만듦
   const years = yearStr.match(/\d+/g);
   if (!years) return 0;
-  // 추출된 숫자 중 가장 큰 값을 반환 (예: "2013~2024" -> 2024)
-  return Math.max(...years.map(Number));
+  return Number(years[0]); // 첫 번째 숫자 = 시작 연도
+}
+
+// 종료 연도 파싱 (예: "2022~2025" -> 2025, "2025~" -> 9999, "2025" -> 2025)
+const parseEndYear = (yearStr?: string): number => {
+  if (!yearStr) return 0;
+  if (isOngoing(yearStr)) return 9999; // 진행중이면 무한대 취급
+  const years = yearStr.match(/\d+/g);
+  if (!years) return 0;
+  return Math.max(...years.map(Number)); // 가장 큰 숫자 = 종료 연도
+}
+
+// 정렬용 점수 계산
+// 내림차순: 진행중(시작년도 높을수록) > 완료(종료년도 높을수록)
+// 오름차순: 완료(종료년도 낮을수록) > 진행중(시작년도 낮을수록)
+const getSortScore = (yearStr?: string, sortOrder: 'asc' | 'desc' = 'desc'): number => {
+  const ongoing = isOngoing(yearStr);
+  const startYear = parseStartYear(yearStr);
+  const endYear = parseEndYear(yearStr);
+  
+  if (sortOrder === 'desc') {
+    // 내림차순: 진행중이 먼저, 그 안에서 시작년도 높은 것 먼저
+    // 진행중: 10000 + 시작년도, 완료: 종료년도
+    return ongoing ? 10000 + startYear : endYear;
+  } else {
+    // 오름차순: 완료가 먼저, 그 안에서 종료년도 낮은 것 먼저
+    // 완료: 종료년도, 진행중: 10000 + 시작년도
+    return ongoing ? 10000 + startYear : endYear;
+  }
 }
 
 const URL_REGEX = /(https?:\/\/[^\s]+)/g
@@ -55,40 +89,51 @@ const renderTextWithLinks = (text: string) => {
   })
 }
 
-function ProjectDescription({ category }: ProjectDescriptionProps) {
+function ProjectDescription({ category, initialProjectId }: ProjectDescriptionProps) {
   const { l, language } = useLanguage()
+  const navigate = useNavigate()
+  const location = useLocation()
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>(DEFAULT_SORT_ORDER)
+  
+  // URL에서 카테고리 추출
+  const categoryFromUrl = location.pathname.split('/')[1] || 'game'
   
   // 정렬된 메뉴 아이템 계산
   const sortedMenuItems = useMemo(() => {
     return [...category.menuItems].sort((a, b) => {
-      const yearA = parseYear(category.projects[a]?.year);
-      const yearB = parseYear(category.projects[b]?.year);
+      const scoreA = getSortScore(category.projects[a]?.year, sortOrder);
+      const scoreB = getSortScore(category.projects[b]?.year, sortOrder);
       
       if (sortOrder === 'asc') {
-        return yearA - yearB;
+        return scoreA - scoreB;
       } else {
-        return yearB - yearA;
+        return scoreB - scoreA;
       }
     });
   }, [category.menuItems, category.projects, sortOrder]);
 
-  // key prop으로 인해 category 변경 시 컴포넌트가 재마운트되므로
-  // useState 초기값이 항상 올바른 카테고리의 첫 번째 항목으로 설정됨
-  // 정렬된 리스트의 첫 번째 항목을 기본값으로 설정
-  const [activeProject, setActiveProject] = useState<string>(() => {
+  // 초기 프로젝트 결정: URL에서 제공된 projectId 또는 정렬된 첫 번째
+  const getInitialProject = () => {
+    // URL에서 프로젝트 ID가 제공되고 유효한 경우
+    if (initialProjectId && category.projects[initialProjectId]) {
+      return initialProjectId;
+    }
+    
+    // 그렇지 않으면 정렬된 첫 번째 항목
     const initialSorted = [...category.menuItems].sort((a, b) => {
-      const yearA = parseYear(category.projects[a]?.year);
-      const yearB = parseYear(category.projects[b]?.year);
+      const scoreA = getSortScore(category.projects[a]?.year, DEFAULT_SORT_ORDER);
+      const scoreB = getSortScore(category.projects[b]?.year, DEFAULT_SORT_ORDER);
       
       if (DEFAULT_SORT_ORDER === 'asc') {
-        return yearA - yearB;
+        return scoreA - scoreB;
       } else {
-        return yearB - yearA;
+        return scoreB - scoreA;
       }
     });
     return initialSorted[0] || category.menuItems[0];
-  })
+  };
+
+  const [activeProject, setActiveProject] = useState<string>(getInitialProject)
   
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0)
   const project = category.projects[activeProject]
@@ -98,11 +143,21 @@ function ProjectDescription({ category }: ProjectDescriptionProps) {
   // 다국어 헬퍼 함수
   const localize = (value: LocalizedString) => getLocalizedString(value, language)
 
-  // 프로젝트 변경 시 이미지 인덱스 초기화
+  // 프로젝트 변경 시 이미지 인덱스 초기화 및 URL 업데이트
   const handleProjectChange = (item: string) => {
     setActiveProject(item)
     setActiveImageIndex(0)
+    // URL 업데이트 (replace로 히스토리 쌓이지 않게)
+    navigate(`/${categoryFromUrl}/${encodeURIComponent(item)}`, { replace: true })
   }
+
+  // URL에서 프로젝트 ID가 변경되면 동기화
+  useEffect(() => {
+    if (initialProjectId && category.projects[initialProjectId] && initialProjectId !== activeProject) {
+      setActiveProject(initialProjectId)
+      setActiveImageIndex(0)
+    }
+  }, [initialProjectId])
 
   // 정렬 토글
   const toggleSort = () => {
@@ -217,14 +272,17 @@ function ProjectDescription({ category }: ProjectDescriptionProps) {
             </div>
           )}
           
-          <div className="desc-section">
-            <h3>{l({ ko: '► 주요_구현내용', en: '► KEY_IMPLEMENTATION', ja: '► 主要実装内容' })}</h3>
-            <ul className="feature-list">
-              {project.features.map((feature, index) => (
-                <li key={index}><span className="bullet">▸</span> {localize(feature)}</li>
-              ))}
-            </ul>
-          </div>
+          {/* 주요 구현내용 섹션 - features가 있을 때만 표시 */}
+          {project.features && project.features.length > 0 && (
+            <div className="desc-section">
+              <h3>{l({ ko: '► 주요_구현내용', en: '► KEY_IMPLEMENTATION', ja: '► 主要実装内容' })}</h3>
+              <ul className="feature-list">
+                {project.features.map((feature, index) => (
+                  <li key={index}><span className="bullet">▸</span> {localize(feature)}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {project.skills && (
             <div className="desc-section">
