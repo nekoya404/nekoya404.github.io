@@ -1,26 +1,13 @@
-import { useMemo } from 'react'
 import './ProfileCard.css'
 import './SkillsBox.css'
 import { useLanguage } from '../i18n'
 import profileImage from '../assets/projects/nekoyaicon.jpeg'
 import { profileData } from '../data/home'
-import { calculateYearsOfExperience } from '../utils/date'
 
 export const PROFILE_IMAGE_URL = profileImage
 
 function ProfileCard() {
   const { language } = useLanguage()
-
-  // 경력 연수 계산
-  const yearsOfExperience = useMemo(() => {
-    return calculateYearsOfExperience(profileData.workStartDate)
-  }, [])
-
-  // 설명 텍스트에서 {years} 치환
-  const getDescription = () => {
-    const desc = profileData.description[language]
-    return desc.replace('{years}', String(yearsOfExperience))
-  }
 
   return (
     <div className="profile-card">
@@ -36,12 +23,9 @@ function ProfileCard() {
         
         <div className="profile-content">
           <h2 className="name"><span className="highlight">{profileData.name}</span></h2>
-          <p 
-            className="description"
-            dangerouslySetInnerHTML={{ __html: getDescription() }}
-          />
+          <p className="description">{profileData.description[language]}</p>
 
-          <div className="skills-strengths" aria-label="Things I Like">
+          <div className="skills-strengths" aria-label={profileData.strengthsTitle[language]}>
             <div className="skills-strengths-title">
               {profileData.strengthsTitle[language]}
             </div>

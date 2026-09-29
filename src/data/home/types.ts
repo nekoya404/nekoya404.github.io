@@ -3,21 +3,6 @@ import type { Language } from '../../i18n'
 // 다국어 문자열 타입
 export type LocalizedString = string | Record<Language, string>
 
-// 스킬 관련 타입
-export type SkillKey = 
-  | 'Game Programming' 
-  | 'App Programming' 
-  | 'Web Programming' 
-  | 'Korean (Native)' 
-  | 'Japanese (Fluent)' 
-  | 'English (B1 Level)'
-
-export interface SkillDescription {
-  ko: string
-  en: string
-  ja: string
-}
-
 // 프로필 관련 타입
 export interface ProfileStrength {
   ko: string
