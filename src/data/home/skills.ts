@@ -27,9 +27,12 @@ export const skillDescriptions: Record<SkillKey, SkillDescription> = {
   • マルチプレイヤー/ネットワークゲーム`
   },
   'App Programming': {
-    ko: `• Flutter (Dart)`,
-    en: `• Flutter (Dart)`,
-    ja: `• Flutter (Dart)`
+    ko: `• Flutter (Dart)
+• React Native / Expo (TypeScript)`,
+    en: `• Flutter (Dart)
+• React Native / Expo (TypeScript)`,
+    ja: `• Flutter (Dart)
+• React Native / Expo (TypeScript)`
   },
   'Web Programming': {
     ko: `• React / TypeScript

@@ -251,7 +251,7 @@ function ProjectDescription({ category, initialProjectId }: ProjectDescriptionPr
                 <div className="gallery-container">
                   <img 
                     src={project.pictures[activeImageIndex]} 
-                    alt={`${project.title} screenshot ${activeImageIndex + 1}`}
+                    alt={`${localize(project.title)} screenshot ${activeImageIndex + 1}`}
                     className="gallery-image"
                   />
                   <div className="gallery-indicator">
@@ -271,26 +271,6 @@ function ProjectDescription({ category, initialProjectId }: ProjectDescriptionPr
               </div>
             </div>
           )}
-          
-          {/* 주요 구현내용 섹션 - features가 있을 때만 표시 */}
-          {project.features && project.features.length > 0 && (
-            <div className="desc-section">
-              <h3>{l({ ko: '► 주요_구현내용', en: '► KEY_IMPLEMENTATION', ja: '► 主要実装内容' })}</h3>
-              <ul className="feature-list">
-                {project.features.map((feature, index) => (
-                  <li key={index}><span className="bullet">▸</span> {localize(feature)}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {project.skills && (
-            <div className="desc-section">
-              <h3>{l({ ko: '► 기술 스택', en: '► SKILLS', ja: '► 技術スタック' })}</h3>
-              <p className="skills-text">{project.skills}</p>
-            </div>
-          )}
-          
         </div>
         
         {(project.status || project.year) && (

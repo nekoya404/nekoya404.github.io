@@ -40,7 +40,7 @@ function ProjectsList({ currentPage }: ProjectsListProps) {
     },
     {
       title: l({ ko: '게임_프로젝트', en: 'GAME_PROJECT', ja: 'ゲーム_プロジェクト' }),
-      subtitle: l({ ko: '유니티를 이용한 게임 개발', en: 'Game development with Unity', ja: 'Unityを使ったゲーム開発' }),
+      subtitle: l({ ko: '게임과 제작 도구 개발', en: 'Games and creation tools', ja: 'ゲームと制作ツールの開発' }),
       pageType: 'game' as PageType,
     },
     {
@@ -50,12 +50,12 @@ function ProjectsList({ currentPage }: ProjectsListProps) {
     },
     {
       title: l({ ko: '앱_프로젝트', en: 'APP_PROJECT', ja: 'アプリ_プロジェクト' }),
-      subtitle: l({ ko: '플러터를 이용한 앱 개발', en: 'App development with Flutter', ja: 'Flutterを使ったアプリ開発' }),
+      subtitle: l({ ko: '모바일 앱 개발', en: 'Mobile app development', ja: 'モバイルアプリ開発' }),
       pageType: 'app' as PageType,
     },
     {
       title: l({ ko: '기타_프로젝트', en: 'OTHER_PROJECT', ja: 'その他_プロジェクト' }),
-      subtitle: l({ ko: 'Etc.', en: 'Etc.', ja: 'その他' }),
+      subtitle: l({ ko: '개발 도구 및 확장 프로그램', en: 'Developer tools and extensions', ja: '開発ツールと拡張機能' }),
       pageType: 'other' as PageType,
     }
   ]

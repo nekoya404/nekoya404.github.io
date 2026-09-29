@@ -163,26 +163,6 @@
   font-family: 'VT323', monospace;
 }
 
-.feature-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-left: 16px;
-}
-
-.feature-list li {
-  color: var(--dos-bright-white);
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.bullet {
-  color: var(--dos-light-cyan);
-}
-
 .desc-footer {
   display: flex;
   align-items: center;
@@ -250,10 +230,6 @@
   }
   
   .desc-section p {
-    font-size: 16px;
-  }
-  
-  .feature-list li {
     font-size: 16px;
   }
   

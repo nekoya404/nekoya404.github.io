@@ -4,6 +4,7 @@ export const gameStack: TechStackData = {
   clientStack: [
     { name: 'Unity', badgeUrl: 'https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white' },
     { name: 'C#', badgeUrl: 'https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white' },
+    { name: 'MonoGame', badgeUrl: 'https://img.shields.io/badge/MonoGame-E73C00?style=for-the-badge&logo=monogame&logoColor=white' },
     { name: 'R3', badgeUrl: 'https://img.shields.io/badge/R3-FF4154?style=for-the-badge&logo=reactivex&logoColor=white' },
     { name: 'MagicOnion', badgeUrl: 'https://img.shields.io/badge/MagicOnion-4DB6AC?style=for-the-badge&logo=dotnet&logoColor=white' },
     { name: 'MemoryPack', badgeUrl: 'https://img.shields.io/badge/MemoryPack-26A69A?style=for-the-badge&logo=dotnet&logoColor=white' },
@@ -48,6 +49,8 @@ export const appStack: TechStackData = {
     { name: 'Flutter', badgeUrl: 'https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white' },
     { name: 'Dart', badgeUrl: 'https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white' },
     { name: 'Riverpod', badgeUrl: 'https://img.shields.io/badge/Riverpod-00D8FF?style=for-the-badge&logo=flutter&logoColor=white' },
+    { name: 'React Native', badgeUrl: 'https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB' },
+    { name: 'Expo', badgeUrl: 'https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white' },
   ],
   serverStack: [
     { name: 'Supabase', badgeUrl: 'https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white' },
@@ -56,12 +59,19 @@ export const appStack: TechStackData = {
   dbStack: [
     { name: 'Supabase', badgeUrl: 'https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white' },
     { name: 'Firebase', badgeUrl: 'https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black' },
+    { name: 'SQLite', badgeUrl: 'https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white' },
   ]
 }
 
 export const otherStack: TechStackData = {
-  clientStack: [],
-  serverStack: [],
+  clientStack: [
+    { name: 'TypeScript', badgeUrl: 'https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white' },
+    { name: 'Flutter', badgeUrl: 'https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white' },
+    { name: 'Dart', badgeUrl: 'https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white' },
+  ],
+  serverStack: [
+    { name: 'Gemini API', badgeUrl: 'https://img.shields.io/badge/Gemini_API-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white' },
+  ],
   dbStack: []
 }
 

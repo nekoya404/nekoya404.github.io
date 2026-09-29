@@ -2,12 +2,20 @@ import type { ProjectCategory } from '../types'
 import { portfolio } from './portfolio'
 // import { macrogap } from './macrogap' // 임시 비공개
 import { metarmo } from './metarmo'
+import { metarmoWorkspace } from './metarmoWorkspace'
+import { kigyoten } from './kigyoten'
+import { metarmoDb } from './metarmoDb'
+import { scenarioShare } from './scenarioShare'
 
 // 웹 프로젝트들을 여기에 추가하세요
 const projects = {
   portfolio,
   // macrogap, // 임시 비공개
   metarmo,
+  metarmoWorkspace,
+  kigyoten,
+  metarmoDb,
+  scenarioShare,
 }
 
 export const webProjects: ProjectCategory = {
