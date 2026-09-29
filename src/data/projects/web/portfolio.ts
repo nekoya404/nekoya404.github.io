@@ -29,11 +29,6 @@ export const portfolio: ProjectData = {
       ja: 'CSSカスタム'
     }
   ],
-  architecture: {
-    wrapper: 'CSR',
-    client: { name: 'FRONTEND', tech: 'React + Vite' },
-    server: { name: 'HOSTING', tech: 'GitHub Pages' }
-  },
   status: 'COMPLETED',
   year: '2026'
 }

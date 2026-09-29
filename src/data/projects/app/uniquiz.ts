@@ -39,10 +39,6 @@ export const uniquiz: ProjectData = {
       ja: 'Riverpodによる状態管理 + MVVMパターン'
     }
   ],
-  architecture: {
-    client: { name: 'FRONTEND', tech: 'Flutter (Web) + Riverpod + MVVM + GoRouter' },
-    server: { name: 'BACKEND', tech: 'Firebase' }
-  },
   status: 'IN_PROGRESS',
   year: '2025~'
 }

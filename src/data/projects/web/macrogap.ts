@@ -43,11 +43,6 @@ export const macrogap: ProjectData = {
       ja: '多言語対応（ko/en/ja）'
     },
   ],
-  architecture: {
-    wrapper: 'CSR',
-    client: { name: 'FRONTEND', tech: 'React 18 + TypeScript + Vite + TailwindCSS' },
-    server: { name: 'BACKEND', tech: 'Supabase + Riot API' }
-  },
   skills:
     'React 18, TypeScript, Vite, TailwindCSS, Supabase (Postgres/Auth/Storage/Edge Functions), Riot API',
   status: 'IN_PROGRESS',

@@ -39,11 +39,6 @@ export const metarmo: ProjectData = {
       ja: 'next-sitemapを使用したSEO用サイトマップ生成'
     }
   ],
-  architecture: {
-    wrapper: 'SSG',
-    client: { name: 'FRONTEND', tech: 'React + Next.js' },
-    server: { name: 'HOSTING', tech: 'Vercel' }
-  },
   status: 'COMPLETED',
   year: '2025'
 }

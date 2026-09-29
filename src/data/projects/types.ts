@@ -12,11 +12,6 @@ export interface ProjectData {
   info: LocalizedString
   pictures?: string[]  // 선택적 필드 - 사진 URL 배열
   features: LocalizedString[]
-  architecture?: {
-    wrapper?: string
-    client: { name: string; tech: string }
-    server: { name: string; tech: string }
-  }
   skills?: string
   status?: string
   year?: string

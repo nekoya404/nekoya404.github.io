@@ -31,10 +31,6 @@ export const sidenoteai: ProjectData = {
     },
 
   ],
-  architecture: {
-    client: { name: 'VS CODE', tech: 'TypeScript + VS Code Extension API + Webview' },
-    server: { name: 'AI', tech: 'Gemini API' }
-  },
   skills: 'TypeScript, VS Code Extension API, Webview, Gemini API',
   status: 'IN_PROGRESS',
   year: '2025~'

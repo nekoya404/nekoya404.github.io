@@ -183,75 +183,6 @@
   color: var(--dos-light-cyan);
 }
 
-.architecture-diagram {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  padding: 24px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--dos-light-blue);
-}
-
-.arch-wrapper {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--dos-yellow);
-  padding: 16px;
-  position: relative;
-}
-
-.wrapper-label {
-  position: absolute;
-  top: -12px;
-  left: 16px;
-  background: var(--dos-black);
-  color: var(--dos-yellow);
-  padding: 0 8px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.wrapper-content {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.arch-box {
-  padding: 16px 32px;
-  border: 2px solid;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.arch-box span {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.arch-box small {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.client-box {
-  border-color: var(--dos-light-cyan);
-  color: var(--dos-light-cyan);
-}
-
-.server-box {
-  border-color: var(--dos-light-green);
-  color: var(--dos-light-green);
-}
-
-.arch-arrow {
-  font-size: 32px;
-  color: var(--dos-yellow);
-}
-
 .desc-footer {
   display: flex;
   align-items: center;
@@ -340,17 +271,4 @@
     max-height: 200px;
   }
   
-  .architecture-diagram {
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-  }
-  
-  .arch-box {
-    padding: 12px 24px;
-  }
-  
-  .arch-arrow {
-    transform: rotate(90deg);
-  }
 }

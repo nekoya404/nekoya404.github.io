@@ -11,19 +11,19 @@ export const skillDescriptions: Record<SkillKey, SkillDescription> = {
   • Unity (C#)
     
 ◆ 전문 분야
-  • 게임 시스템 설계 및 아키텍처
+  • 게임 시스템 설계
   • 멀티플레이어/네트워크 게임`,
     en: `◆ Main Game Engine
   • Unity (C#)
     
 ◆ Specializations
-  • Game System Design & Architecture
+  • Game System Design
   • Multiplayer/Network Games`,
     ja: `◆ 主要ゲームエンジン
   • Unity (C#)
     
 ◆ 専門分野
-  • ゲームシステム設計・アーキテクチャ
+  • ゲームシステム設計
   • マルチプレイヤー/ネットワークゲーム`
   },
   'App Programming': {

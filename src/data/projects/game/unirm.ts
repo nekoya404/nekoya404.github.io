@@ -46,16 +46,6 @@ export const unirm: ProjectData = {
       ja: '`.editorconfig` とビルド時スタイルチェックでC#コーディング規約を一貫して維持'
     }
   ],
-  architecture: {
-    client: {
-      name: 'Unity Client',
-      tech: 'Unity, C#, MagicOnion Client, UniTask'
-    },
-    server: {
-      name: 'C# Server',
-      tech: 'ASP.NET Core, gRPC, MagicOnion, .NET'
-    }
-  },
   skills: 'Unity, C#, ASP.NET Core, gRPC, MagicOnion, MemoryPack, UniTask',
   status: 'ONGOING',
   year: '2025~'
