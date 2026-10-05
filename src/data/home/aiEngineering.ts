@@ -13,7 +13,7 @@ export const aiEngineeringSections: SkillSection[] = [{
       ja: '埋め込み・韓国語の前処理・学習データの構成への理解'
     },
     {
-      ko: 'PyTorch 기반 모델 구현과 CPU·GPU 학습 환경 이해',
+      ko: 'PyTorch 모델 구현과 CPU·GPU 학습 환경 이해',
       en: 'Understanding model implementation with PyTorch and CPU/GPU training environments',
       ja: 'PyTorchによるモデル実装とCPU・GPU学習環境への理解'
     },
@@ -23,12 +23,12 @@ export const aiEngineeringSections: SkillSection[] = [{
       ja: '事前学習・SFT・PEFTの原理とファインチューニングの流れへの理解'
     },
     {
-      ko: '퍼플렉시티 기반 모델 평가와 생성 품질 분석 이해',
+      ko: '퍼플렉시티 기반 평가와 생성 품질 분석 이해',
       en: 'Understanding perplexity-based model evaluation and generation quality analysis',
       ja: 'パープレキシティによるモデル評価と生成品質の分析への理解'
     },
     {
-      ko: 'AI 에이전트 구조와 AI를 활용한 구현·디버깅 이해',
+      ko: 'AI 에이전트 구조와 AI 기반 구현·디버깅 이해',
       en: 'Understanding AI agent structure and AI-assisted implementation and debugging',
       ja: 'AIエージェントの構造とAIを活用した実装・デバッグへの理解'
     }

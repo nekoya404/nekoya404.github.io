@@ -249,6 +249,7 @@
   line-height: 1.8;
   margin: 0;
   list-style: none;
+  word-break: keep-all;
 }
 
 .skill-knowledge-list li {
