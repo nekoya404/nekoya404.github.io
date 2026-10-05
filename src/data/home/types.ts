@@ -13,12 +13,7 @@ export type SkillKey =
 export type SkillDescription = Record<Language, string>
 
 export interface SkillSection {
-  title?: SkillDescription
   items: SkillDescription[]
-  source?: {
-    title: string
-    url: string
-  }
 }
 
 // 프로필 관련 타입

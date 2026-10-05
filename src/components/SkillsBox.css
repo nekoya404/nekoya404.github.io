@@ -243,13 +243,6 @@
   overflow-wrap: anywhere;
 }
 
-.skill-section-title {
-  color: var(--dos-light-green);
-  font-size: 16px;
-  font-weight: 400;
-  margin-bottom: 12px;
-}
-
 .skill-knowledge-list {
   color: var(--dos-bright-white);
   font-size: 16px;
@@ -269,12 +262,6 @@
   position: absolute;
   left: 0;
   color: var(--dos-light-green);
-}
-
-.skill-source {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 16px;
 }
 
 /* DOS 스캔라인 효과 (선택사항) */
