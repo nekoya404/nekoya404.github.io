@@ -17,6 +17,7 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   flex: 1;
+  min-width: 0;
 }
 
 .nav-item {
@@ -24,9 +25,9 @@
   border: none;
   color: #000000;
   padding: 12px 24px;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  font-weight: bold;
+  font-family: var(--font-retro);
+  font-size: 16px;
+  font-weight: 400;
   cursor: pointer;
   transition: none;
   position: relative;
@@ -41,12 +42,12 @@
 }
 
 .nav-title {
-  font-size: 22px;
+  font-size: 16px;
   white-space: nowrap;
 }
 
 .nav-year {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   margin-top: 4px;
   opacity: 0.8;
@@ -120,10 +121,10 @@
   }
 
   .nav-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .nav-year {
-    font-size: 12px;
+    font-size: 16px;
   }
 }

@@ -21,7 +21,7 @@
 }
 
 .topmenu-bar .nav-title {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .topmenu-lang {
@@ -52,9 +52,9 @@
   background: transparent;
   border: none;
   color: #000000;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  font-weight: bold;
+  font-family: var(--font-retro);
+  font-size: 16px;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: left;
@@ -84,4 +84,10 @@
 
 .topmenu-dropdown-item.active .topmenu-dropdown-label::first-letter {
   color: #ff5555;
+}
+
+@media (max-width: 768px) {
+  .topmenu-bar .nav-item {
+    padding: 6px 10px;
+  }
 }

@@ -49,8 +49,8 @@
 
 .loading-title {
   color: var(--dos-light-green);
-  font-size: 24px;
-  font-family: 'VT323', monospace;
+  font-size: 32px;
+  font-family: var(--font-retro);
   animation: blink 1s infinite;
 }
 
@@ -98,8 +98,8 @@
 
 .progress-text {
   color: var(--dos-light-cyan);
-  font-size: 18px;
-  font-family: 'VT323', monospace;
+  font-size: 16px;
+  font-family: var(--font-retro);
   min-width: 50px;
   text-align: right;
 }
@@ -107,8 +107,8 @@
 .loading-blocks {
   display: flex;
   gap: 2px;
-  font-size: 20px;
-  font-family: 'VT323', monospace;
+  font-size: 16px;
+  font-family: var(--font-retro);
 }
 
 .loading-blocks .block {

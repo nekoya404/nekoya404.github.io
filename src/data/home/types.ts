@@ -5,22 +5,23 @@ export type LocalizedString = string | Record<Language, string>
 
 // 스킬 관련 타입
 export type SkillKey =
-  | 'Game Programming'
-  | 'App Programming'
-  | 'Web Programming'
+  | 'AI Engineering'
+  | 'Game Development'
   | 'Korean (Native)'
   | 'Japanese (Fluent)'
-  | 'English (B1 Level)'
 
 export type SkillDescription = Record<Language, string>
 
-// 프로필 관련 타입
-export interface ProfileStrength {
-  ko: string
-  en: string
-  ja: string
+export interface SkillSection {
+  title?: SkillDescription
+  items: SkillDescription[]
+  source?: {
+    title: string
+    url: string
+  }
 }
 
+// 프로필 관련 타입
 export interface ProfileData {
   name: string
   username: string
@@ -30,12 +31,6 @@ export interface ProfileData {
     en: string
     ja: string
   }
-  strengthsTitle: {
-    ko: string
-    en: string
-    ja: string
-  }
-  strengths: ProfileStrength[]
 }
 
 // 테크 스택 관련 타입

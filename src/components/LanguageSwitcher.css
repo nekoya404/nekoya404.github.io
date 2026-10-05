@@ -13,8 +13,8 @@
   background: var(--dos-black);
   border: 2px solid var(--dos-light-cyan);
   color: var(--dos-light-cyan);
-  font-family: 'VT323', monospace;
-  font-size: 18px;
+  font-family: var(--font-retro);
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.1s;
 }
@@ -29,12 +29,12 @@
 }
 
 .lang-code {
-  font-weight: bold;
+  font-weight: 400;
   letter-spacing: 1px;
 }
 
 .lang-arrow {
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 4px;
 }
 
@@ -60,8 +60,8 @@
   background: transparent;
   border: none;
   color: var(--dos-bright-white);
-  font-family: 'VT323', monospace;
-  font-size: 18px;
+  font-family: var(--font-retro);
+  font-size: 16px;
   cursor: pointer;
   text-align: left;
   transition: all 0.1s;
@@ -82,7 +82,7 @@
 
 .lang-check {
   color: var(--dos-light-green);
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .language-option.active .lang-check {

@@ -221,7 +221,7 @@ function ProjectDescription({ category, initialProjectId }: ProjectDescriptionPr
           onClick={toggleSort}
           title={sortOrder === 'asc' ? "Sort Descending" : "Sort Ascending"}
         >
-          <span className="nav-title" style={{ fontSize: '18px' }}>
+          <span className="nav-title">
             {sortOrder === 'asc' ? 'YEAR ▲' : 'YEAR ▼'}
           </span>
         </button>

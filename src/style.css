@@ -5,6 +5,8 @@
 }
 
 :root {
+  --font-retro: 'NeoDunggeunmo', 'DotGothic16', monospace;
+
   /* BOOTSTRA.386 DOS Color Palette */
   --dos-blue: #000084;
   --dos-light-blue: #5555ff;
@@ -41,13 +43,19 @@
   --bottom-statusbar-height: 28px;
 }
 
+:root:lang(ja) {
+  --font-retro: 'DotGothic16', 'NeoDunggeunmo', monospace;
+}
+
 body {
-  font-family: 'VT323', monospace;
+  font-family: var(--font-retro);
+  font-synthesis: none;
+  font-weight: 400;
   background-color: var(--bg-dark);
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
   image-rendering: pixelated;
 }
@@ -228,5 +236,5 @@ body::before {
 /* Highlight utility class */
 .highlight {
   color: var(--dos-light-cyan);
-  font-weight: bold;
+  font-weight: 400;
 }

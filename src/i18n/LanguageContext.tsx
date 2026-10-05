@@ -53,6 +53,10 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   const [language, setLanguageState] = useState<Language>('en')
   const [isInitialized, setIsInitialized] = useState(false)
 
+  useEffect(() => {
+    if (isInitialized) document.documentElement.lang = language
+  }, [language, isInitialized])
+
   // 초기 언어 설정
   useEffect(() => {
     async function initializeLanguage() {

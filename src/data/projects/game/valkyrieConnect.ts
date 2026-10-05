@@ -20,5 +20,5 @@ export const valkyrieConnect: ProjectData = {
   pictures: [screenshot1, screenshot2, screenshot3, screenshot4],
   features: [],
   status: 'IN_PROGRESS',
-  year: '2025~2026'
+  year: '2025~'
 }

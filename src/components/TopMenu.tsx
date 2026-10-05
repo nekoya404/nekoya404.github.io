@@ -79,7 +79,7 @@ function TopMenu() {
             aria-expanded={isOpen}
             aria-haspopup="listbox"
           >
-            <span className="nav-title" style={{ fontSize: '18px' }}>
+            <span className="nav-title">
               Language: {language.toUpperCase()} {isOpen ? '▲' : '▼'}
             </span>
           </button>

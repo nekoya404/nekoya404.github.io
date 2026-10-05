@@ -42,6 +42,6 @@ export const unifp: ProjectData = {
     }
   ],
   skills: 'Unity, C#, UPM, UniTask',
-  status: 'ONGOING',
-  year: '2025~'
+  status: 'COMPLETED',
+  year: '2025'
 }

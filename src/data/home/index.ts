@@ -3,7 +3,7 @@ export type {
   LocalizedString, 
   SkillKey,
   SkillDescription,
-  ProfileStrength,
+  SkillSection,
   ProfileData,
   TechBadge,
   TechStackData,
@@ -14,7 +14,7 @@ export type {
 export { getLocalizedString } from './types'
 
 // 스킬 데이터 export
-export { skills, languageSkills, skillDescriptions } from './skills'
+export { skills, languageSkills, skillLabels, skillDescriptions, skillSections } from './skills'
 
 // 프로필 데이터 export
 export { profileData } from './profile'

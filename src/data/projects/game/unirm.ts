@@ -10,7 +10,7 @@ export const unirm: ProjectData = {
   platform: 'Unity + .NET Server',
   badge: 'Fullstack',
   info: {
-    ko: 'Unity 클라이언트와 C# 서버를 분리한 실시간 멀티플레이어 프로젝트 템플릿입니다. MagicOnion(gRPC) 기반 통신, 클라이언트-서버 공유 패키지(Game.Shared), 더미 클라이언트를 통한 통합 테스트 흐름까지 포함해 바로 시작할 수 있는 구조를 목표로 구성했습니다. 지금은 MagicOnion을 사용했지만 차후 업데이트를 통해서는 MagicOnion을 쓰지 않는 방향으로 템플릿을 구성하려고 합니다. \n\nGitHub: https://github.com/nekoya404/Real-time-Multiplayer-Game-Template-Unity',
+    ko: 'Unity 클라이언트와 C# 서버를 분리한 실시간 멀티플레이어 프로젝트 템플릿입니다. MagicOnion(gRPC) 기반 통신, 클라이언트-서버 공유 패키지(Game.Shared), 더미 클라이언트를 통한 통합 테스트 흐름까지 포함해 바로 시작할 수 있는 구조를 목표로 구성했습니다.\n\nGitHub: https://github.com/nekoya404/Real-time-Multiplayer-Game-Template-Unity',
     en: 'A real-time multiplayer template that separates a Unity client and a C# server. It is structured to be ready-to-start with MagicOnion (gRPC) messaging, a shared client/server package (Game.Shared), and an integration-testing flow via a dummy .NET client.\n\nGitHub: https://github.com/nekoya404/Real-time-Multiplayer-Game-Template-Unity',
     ja: 'UnityクライアントとC#サーバーを分離したリアルタイムマルチプレイヤーのテンプレートです。MagicOnion(gRPC)による通信、クライアント/サーバー共有パッケージ(Game.Shared)、ダミークライアントによる統合テスト導線を含み、すぐに開発を始められる構成を目指しました。\n\nGitHub: https://github.com/nekoya404/Real-time-Multiplayer-Game-Template-Unity'
   },
@@ -47,6 +47,6 @@ export const unirm: ProjectData = {
     }
   ],
   skills: 'Unity, C#, ASP.NET Core, gRPC, MagicOnion, MemoryPack, UniTask',
-  status: 'ONGOING',
-  year: '2025~'
+  status: 'COMPLETED',
+  year: '2025'
 }

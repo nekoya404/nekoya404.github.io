@@ -23,17 +23,18 @@
 .location-info {
   position: relative;
   z-index: 1;
+  min-width: 0;
 }
 
 .location-info h3 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 400;
   margin-bottom: 4px;
   color: var(--dos-bright-white);
 }
 
 .location-info p {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--dos-light-green);
 }
 
@@ -55,7 +56,7 @@
   position: absolute;
   top: -4px;
   left: 0;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--dos-light-red);
 }
 

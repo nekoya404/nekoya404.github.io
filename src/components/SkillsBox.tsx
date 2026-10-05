@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import './SkillsBox.css'
 import { useLanguage } from '../i18n'
-import { skills, languageSkills, skillDescriptions, type SkillKey } from '../data/home'
+import { skills, languageSkills, skillLabels, skillDescriptions, skillSections, type SkillKey } from '../data/home'
 
 function SkillsBox() {
   const { language } = useLanguage()
@@ -94,7 +94,7 @@ function SkillsBox() {
   }
 
   // 현재 표시할 타이틀
-  const currentTitle = displayedSkill ? `[ ${displayedSkill} ]` : '[ SKILLS ]'
+  const currentTitle = displayedSkill ? `[ ${skillLabels[displayedSkill][language]} ]` : '[ SKILLS ]'
 
   return (
     <div className="skills-card">
@@ -105,8 +105,10 @@ function SkillsBox() {
         {displayedSkill && (
           <button
             className="skills-close-btn"
+            type="button"
             onClick={handleClose}
-            aria-label="Close"
+            disabled={isTransitioning}
+            aria-label={language === 'ko' ? 'Skills 목록으로 돌아가기' : language === 'ja' ? 'Skills一覧に戻る' : 'Back to Skills'}
           >
             [X]
           </button>
@@ -127,9 +129,10 @@ function SkillsBox() {
                   key={skill}
                   className="btn btn-large btn-block btn-primary"
                   type="button"
+                  disabled={isTransitioning}
                   onClick={() => handleSkillClick(skill)}
                 >
-                  {skill}
+                  {skillLabels[skill][language]}
                 </button>
               ))}
             </div>
@@ -140,9 +143,10 @@ function SkillsBox() {
                   key={lang}
                   className="btn btn-large btn-block btn-primary"
                   type="button"
+                  disabled={isTransitioning}
                   onClick={() => handleSkillClick(lang)}
                 >
-                  {lang}
+                  {skillLabels[lang][language]}
                 </button>
               ))}
             </div>
@@ -150,9 +154,23 @@ function SkillsBox() {
         ) : (
           // 스킬 상세 설명 보기
           <div className="skill-detail">
-            <pre className="skill-description">
-              {skillDescriptions[displayedSkill][language]}
-            </pre>
+            {skillSections[displayedSkill] ? (
+              skillSections[displayedSkill]!.map((section, index) => (
+                <section className="skill-section" key={index}>
+                  {section.title && <h3 className="skill-section-title">{section.title[language]}</h3>}
+                  <ul className="skill-knowledge-list">
+                    {section.items.map((item, itemIndex) => <li key={itemIndex}>{item[language]}</li>)}
+                  </ul>
+                  {section.source && (
+                    <a className="skill-source" href={section.source.url} target="_blank" rel="noopener noreferrer">
+                      {language === 'ko' ? '강의 목차' : language === 'ja' ? '講座の目次' : 'Course syllabus'}: {section.source.title} ↗
+                    </a>
+                  )}
+                </section>
+              ))
+            ) : (
+              <p className="skill-description">{skillDescriptions[displayedSkill][language]}</p>
+            )}
           </div>
         )}
       </div>

@@ -1,5 +1,4 @@
 import './ProfileCard.css'
-import './SkillsBox.css'
 import { useLanguage } from '../i18n'
 import profileImage from '../assets/projects/nekoyaicon.jpeg'
 import { profileData } from '../data/home'
@@ -24,19 +23,6 @@ function ProfileCard() {
         <div className="profile-content">
           <h2 className="name"><span className="highlight">{profileData.name}</span></h2>
           <p className="description">{profileData.description[language]}</p>
-
-          <div className="skills-strengths" aria-label={profileData.strengthsTitle[language]}>
-            <div className="skills-strengths-title">
-              {profileData.strengthsTitle[language]}
-            </div>
-            <ul className="skills-strengths-body">
-              {profileData.strengths.map((strength, index) => (
-                <li key={index}>
-                  {strength[language]}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
   )
