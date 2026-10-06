@@ -2,15 +2,15 @@ import type { ProjectData } from '../types'
 
 export const metarmo: ProjectData = {
   title: {
-    ko: 'METARMO',
-    en: 'METARMO',
-    ja: 'METARMO'
+    ko: 'METARMO LP제작',
+    en: 'METARMO Landing Page Development',
+    ja: 'METARMO LP制作'
   },
   badge: 'Frontend',
   info: {
-    ko: 'metarmo의 웹사이트 제작의뢰를 받아 구현했습니다.\n디자이너가 Figma를 통해서 디자인을 전달하고 해당 디자인을 바탕으로 구현했습니다.\n\nURL: https://www.metarmo.com/',
-    en: 'I was commissioned to build the metarmo website.\nThe designer delivered the design through Figma, and I implemented it based on that design.\n\nURL: https://www.metarmo.com/',
-    ja: 'metarmoのウェブサイト制作依頼を受けて実装しました。\nデザイナーがFigmaを通じてデザインを渡し、そのデザインを基に実装しました。\n\nURL: https://www.metarmo.com/'
+    ko: 'metarmo의 웹사이트 제작의뢰를 받아 구현했습니다.\n디자인적인 측면을 많이 신경썼습니다.',
+    en: 'I was commissioned to build the metarmo website.\nI paid particular attention to its visual design.',
+    ja: 'metarmoのウェブサイト制作依頼を受けて実装しました。\nデザイン面に特に力を入れました。'
   },
   features: [
     {
