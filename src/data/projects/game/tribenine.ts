@@ -12,9 +12,9 @@ export const tribenine: ProjectData = {
   platform: 'Steam, iOS, Android',
   badge: 'Frontend',
   info: {
-    ko: '회사 프로젝트이기 때문에 자세한 내용은 비공개합니다.',
-    en: 'Details are confidential as this is a company project.',
-    ja: '会社プロジェクトのため、詳細は非公開とさせていただきます。'
+    ko: '아카츠키에서 트라이브나인 개발에 참여했습니다.',
+    en: 'Worked on TRIBE NINE at Akatsuki.',
+    ja: 'Akatsukiでトライブナインの開発に携わりました。'
   },
   pictures: [
     tribeNine1,

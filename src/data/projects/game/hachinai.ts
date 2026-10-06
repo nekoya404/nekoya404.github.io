@@ -12,9 +12,9 @@ export const hachinai: ProjectData = {
   platform: 'iOS, Android',
   badge: 'Frontend',
   info: {
-    ko: '회사 프로젝트이기 때문에 자세한 내용은 비공개합니다.',
-    en: 'Details are confidential as this is a company project.',
-    ja: '会社プロジェクトのため、詳細は非公開とさせていただきます。'
+    ko: '아카츠키에서 8월의 신데렐라나인 개발에 참여했습니다.',
+    en: 'Worked on August Cinderella Nine at Akatsuki.',
+    ja: 'Akatsukiで8月のシンデレラナインの開発に携わりました。'
   },
   pictures: [
     eightGatu1,
